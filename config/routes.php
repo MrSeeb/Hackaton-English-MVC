@@ -39,6 +39,11 @@ function getRoutes() {
       "question",
       "questionList"
     ],
+    "secretary" =>[
+      "user",
+      "homeSecretary",
+      "status" => "Secretary"
+    ],
     "deconect" => [
       "user",
       "deconectUser"

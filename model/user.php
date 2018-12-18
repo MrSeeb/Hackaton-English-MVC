@@ -9,7 +9,18 @@ function getUser($lastName)
   $query->closeCursor();
   return $user;
 }
-
+function getAdmin($post)
+{
+  $db = connectToDataBAse();
+  $query = $db->prepare("SELECT * FROM user WHERE last_name = :last_name AND first_name = :first_name AND password = :password");
+  $query->execute([
+    "last_name" => $post["last_name"],
+    "first_name" => $post["first_name"],
+    "password" => $post["user_password"]]);
+  $user = $query->fetch(PDO::FETCH_ASSOC);
+  $query->closeCursor();
+  return $user;
+}
 // function to have secretary
 function isSecretary()
 {
