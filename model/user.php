@@ -22,6 +22,7 @@ function getUsers($db)
 // function to add a user
 function addUser($user)
 {
+
   $db = connectToDataBAse();
   $query = $db->prepare('INSERT INTO user(first_name, last_name, password, mail, phone, status) VALUES(:first_name, :last_name, :password, :mail, :phone, :status)');
   $result = $query->execute(array(

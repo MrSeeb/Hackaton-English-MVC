@@ -16,7 +16,7 @@ function getRoutes() {
   return [
     "" => [
       "user",
-      "firstpage"
+      "loginStudent"
     ],
     "login" => [
       "admin",

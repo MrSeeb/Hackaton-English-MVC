@@ -3,7 +3,7 @@
     <h3>Veuillez rentrer vos identifiants pour acceder à votre test.</h3>
     <div class="container-fluide">
       <div class="row">
-        <form class="mx-auto my-auto" action="loginStudent.php" method="post">
+        <form class="mx-auto my-auto" action="" method="post">
           <div class="form-group">
             <label for="last-name">Nom</label>
             <input type="text" class="form-control" id="last-name" name="last_name"  value="">
