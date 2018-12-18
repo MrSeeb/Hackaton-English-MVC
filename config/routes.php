@@ -21,6 +21,22 @@ function getRoutes() {
     "login" => [
       "admin",
       "loginUser"
+    ],
+    "Secretary" => [
+      "user",
+      "homeSecretary"
+    ],
+    "Secretary/addStudent" => [
+      "user",
+      "addStudent"
+    ],
+    "Secretary/results" => [
+      "user",
+      "results"
+    ],
+    "Secretary/progress" => [
+      "user",
+      "progress"
     ]
   ];
 }

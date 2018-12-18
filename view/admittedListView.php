@@ -1,12 +1,10 @@
 <?php
 session_start();
-require "Model/db.php";
-require "Model/sessionStudentManager.php";
-require "Model/userManager.php";
-$db = connectToDataBAse();
-$apprenants = getUsers($db);
-$code = getSessions($db);
-include "Template/header.php";
+require "model/sessionManager.php";
+require "model/users.php";
+$apprenants = getUsers();
+$code = getSessions();
+include "template/header.php";
 ?>
 <table class="table">
     <thead class="thead-dark">
@@ -40,4 +38,4 @@ include "Template/header.php";
     ?>
     </tbody>
 </table>
-<?php include "Template/footer.php"; ?>
+<?php include "template/footer.php"; ?>

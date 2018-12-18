@@ -1,13 +1,13 @@
 <?php
 session_start();
-require "../Model/db.php";
-require "../Model/sessionStudentManager.php";
-require "../Model/userManager.php";
+// require "../Model/db.php";
+// require "../Model/sessionStudentManager.php";
+// require "../Model/userManager.php";
 // require "deleteSessionTreatment.php";
-$db = connectToDataBAse();
-$apprenants = getUsers($db);
-$code = getSessions($db);
-include "../Template/header.php";
+// $db = connectToDataBAse();
+// $apprenants = getUsers($db);
+// $code = getSessions($db);
+include "template/header.php";
 ?>
 <div class="container-fluid row ">
   <div class="col-6 p-0">
