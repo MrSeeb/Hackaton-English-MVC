@@ -43,8 +43,7 @@ function getLastUserID()
 }
 
 //Fonction for delete a user in bdd
-function deleteUser($id, $db)
-{
+function deleteUser($id, $db) {
   $query = getDataBase()->prepare("DELETE FROM user WHERE id_user = ?");
   $result = $query->execute([$id]);
   $query->closeCursor();

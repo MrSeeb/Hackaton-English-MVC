@@ -16,15 +16,14 @@ function loginStudent()
         //Collect the stored users
         foreach ($reponse as $key =>$user)
         {
-            if($user["first_name"] === $_POST["first_name"] && $user["last_name"] === $_POST["last_name"] && $_POST["code"] === $user["code"])
+            if($user["first_name"] === $_POST["first_name"] && $user["last_name"] === $_POST["last_name"] && $user["code"] === $_POST["code"])
             {
                 //Start a session to store the user information stored session
                 session_start();
-                $_SESSION["session"] = $session;
-                //Start a session to store the user information stored answer
-                session_start();
-                $_SESSION["reponse"] = $reponseStudent;
-                redirectTo("testStudent");
+                $session = $_SESSION["session"]; 
+                //Start a session to store the user information stored answers
+                $reponseStudent = $_SESSION["reponse"];
+                redirectTo("bravo");
             }
         }
         redirectTo("");
