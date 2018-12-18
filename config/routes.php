@@ -17,6 +17,30 @@ function getRoutes() {
     "" => [
       "user",
       "loginStudent"
+    ],
+    "login" => [
+      "admin",
+      "loginUser"
+    ],
+    "Teacher" => [
+      "user",
+      "homeTeacher"
+    ],
+    "Teacher/AdmintedList" => [
+      "session",
+      "AdmintedList"
+    ],
+    "Teacher/questionList" => [
+      "question",
+      "questionList"
+    ],
+    "deconect" => [
+      "user",
+      "deconectUser"
+    ],
+    "Secretary/sessionList" => [
+      "session",
+      "sessionList"
     ]
   ];
 }

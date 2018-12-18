@@ -1,6 +1,6 @@
 <?php
-require "Model/db.php";
-include "Template/header.php";
+
+include "view/template/header.php";
 $db = connectToDataBAse();
 
 $query_question = $db->query('SELECT * FROM question');
@@ -64,5 +64,5 @@ $reponse = $query_reponse->fetchall(PDO::FETCH_ASSOC);
   </div>
 </section>
  <?php
-include "Template/footer.php";
+include "view/template/footer.php";
  ?>
