@@ -15,12 +15,8 @@
 function getRoutes() {
   return [
     "" => [
-      "exemple",
-      "welcome"
-    ],
-    "login" => [
-      "admin",
-      "loginUser"
+      "user",
+      "loginStudent"
     ]
   ];
 }
