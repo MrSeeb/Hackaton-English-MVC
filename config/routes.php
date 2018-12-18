@@ -15,12 +15,32 @@
 function getRoutes() {
   return [
     "" => [
-      "exemple",
-      "welcome"
+      "user",
+      "firstpage"
     ],
     "login" => [
       "admin",
       "loginUser"
+    ],
+    "Teacher" => [
+      "user",
+      "homeTeacher"
+    ],
+    "Teacher/AdmintedList" => [
+      "session",
+      "AdmintedList"
+    ],
+    "Teacher/questionList" => [
+      "question",
+      "questionList"
+    ],
+    "deconect" => [
+      "user",
+      "deconectUser"
+    ],
+    "Secretary/sessionList" => [
+      "session",
+      "sessionList"
     ]
   ];
 }
