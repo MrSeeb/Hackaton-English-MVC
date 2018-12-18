@@ -14,9 +14,14 @@
 //]
 function getRoutes() {
   return [
+
     "" => [
       "user",
       "loginStudent"
+    ],
+    "adminConnection" => [
+      "user",
+      "loginAdmin"
     ],
     "login" => [
       "admin",

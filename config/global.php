@@ -3,8 +3,8 @@
 function getGlobalConfig() {
   return $config = [
     "protocol" => "",
-    "host" => "localhost/Lab/Hackaton-English-MVC/",
-    "status" => ["User", "Teacher", "Secretary"],
+    "host" => "localhost:8888/Lab/Hackaton-English-MVC/",
+    "status" => ["Secretary", "user", "Teacher"],
     "defaultRoute" => ""
   ];
 }
