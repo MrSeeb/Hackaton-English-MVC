@@ -1,6 +1,6 @@
 <?php
 // function to have all sessions test
-function getSessions($db)
+function getSessions()
 {
   $db = connectToDataBAse();
   $query = $db->query("SELECT * FROM session");
