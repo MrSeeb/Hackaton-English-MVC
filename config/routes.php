@@ -82,6 +82,10 @@ function getRoutes() {
       "test",
       // ["id" => ["integer"]],
     ],
+    "testEnd" => [
+      "session",
+      "testEnd"
+    ],
     "deconect" => [
       "user",
       "deconectUser"

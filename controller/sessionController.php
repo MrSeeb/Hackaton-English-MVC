@@ -18,6 +18,11 @@ function test(){
   require "view/testStudentView.php";
 }
 
+function testEnd(){
+  // var_dump($_SESSION); la session a t elle été initialisée au niveau du login?
+  require "view/testStudentEndView.php";
+}
+
 
 
 
