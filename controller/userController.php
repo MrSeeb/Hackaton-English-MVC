@@ -56,7 +56,8 @@ function homeSecretary(){
   require 'view/homeSecretaryView.php';
 }
 
-function deconectUser()
+// function to logout session /////////////////////////////
+function logoutUser()
 {
   session_start();
   if (isLogged()) {
@@ -66,8 +67,9 @@ function deconectUser()
   else {
     redirectTo("");
   }
+  var_dump(session_start());
 }
-
+//////////////////////////////////////////////////////////
 function addStudent(){
   require 'view/createSessionStudentView.php';
 }
@@ -85,6 +87,7 @@ function progress(){
 
 
 /////////////////////////////////////////////////////////////
+// need! : modify the error message to redirect
 function eraser(){
 
   if (isset($_GET["id"])) {
@@ -97,11 +100,7 @@ function eraser(){
 
       exit;
     }
-    echo "kokokokoko";
-
-    var_dump(intval($_GET["id"]));
-
+    redirectTo("Secretary/progress,error");
 }
-
-
+////////////////////////////////////////////////////////////
 ?>
