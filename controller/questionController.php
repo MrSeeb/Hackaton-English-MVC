@@ -5,7 +5,7 @@ function questionList(){
   require "view/questionListView.php";
 }
 
-function questionadd(){
+function addQuestion(){
   require "view/addQuestionView.php";
 }
  ?>
