@@ -23,11 +23,10 @@ function getSession($user_id)
 function addSession($session, $user_id, $code)
 {
   $db = connectToDataBAse();
-  $query = $db->prepare("INSERT INTO session (user_id, code, created_date, is_started, start_qcm_date, end_qcm_date, result, level) VALUES(:user_id, :code, CURDATE(),:is_started, :start_qcm_date, :end_qcm_date, :result, :level)");
+  $query = $db->prepare("INSERT INTO session (user_id, code, created_date, start_qcm_date, end_qcm_date, result, level) VALUES(:user_id, :code, CURDATE(), :start_qcm_date, :end_qcm_date, :result, :level)");
   $result = $query->execute([
     "user_id" => $user_id,
     "code" => $code,
-    "is_started" => 0,
     "start_qcm_date" => $session["start_qcm_date"],
     "end_qcm_date" => $session["end_qcm_date"],
     "result" => $session["result"],
