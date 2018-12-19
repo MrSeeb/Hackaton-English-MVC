@@ -2,7 +2,6 @@
 
 <div class="container col-5">
     <h3 class="text-center mb-4">Espace administration</h3>
-    <!-- Need ! : <form action="? .php" -->
     <form method="post">
         <div class="form-group">
             <label for="first_name">Nom d'utilisateur</label>

@@ -27,7 +27,7 @@ function getRoutes() {
       "admin",
       "loginUser"
     ],
-<<<<<<< HEAD
+
     "Secretary" => [
       "user",
       "homeSecretary"
@@ -43,7 +43,7 @@ function getRoutes() {
     "Secretary/progress" => [
       "user",
       "progress"
-=======
+
     "Teacher" => [
       "user",
       "homeTeacher"
@@ -56,15 +56,37 @@ function getRoutes() {
       "question",
       "questionList"
     ],
-    "deconect" => [
+    "secretary" =>[
       "user",
-      "deconectUser"
+      "homeSecretary",
+      "status" => "Secretary"
+    ],
+    // même route que teacher/admittedList faire une route commune? comment mettre 2 status différent
+    "secretary/admittedList"=>[
+      "session",
+      "admittedList",
+      "status" => "Secretary"
     ],
     "Secretary/sessionList" => [
       "session",
       "sessionList"
->>>>>>> 26c5c53009e8f676088ed5a7753b070ed9213742
+
+    ],
+    "testStart"=> [
+    "session",
+    "testStart" ,
+    // ["id" => ["integer"]],
+    ],
+    "test" => [
+      "session",
+      "test",
+      // ["id" => ["integer"]],
+    ],
+    "deconect" => [
+      "user",
+      "deconectUser"
     ]
+
   ];
 }
 
