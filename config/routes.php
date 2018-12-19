@@ -43,6 +43,7 @@ function getRoutes() {
     "Secretary/progress" => [
       "user",
       "progress"
+    ],
 
     "Teacher" => [
       "user",
