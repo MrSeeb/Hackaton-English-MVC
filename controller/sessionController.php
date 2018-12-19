@@ -1,5 +1,5 @@
 <?php
-require "model/session.php"
+require "model/session.php";
 function AdmintedList(){
 require "view/admitedListView.php";
 }

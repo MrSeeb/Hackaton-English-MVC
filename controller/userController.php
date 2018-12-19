@@ -44,6 +44,7 @@ function loginStudent()
         }
         redirectTo("");
     }
+    require "view/indexView.php";
 }
 
 function homeTeacher()
