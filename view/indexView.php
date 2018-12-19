@@ -1,8 +1,8 @@
 <?php
 //On charge le header
-include "Template/header.php";
+require "template/header.php";
 //On charge le formulaire de connexion
-include "Template/Forms/formConnectionStudent.php";
+require "form/formConnectionStudent.php";
 //On charge le footer
-include "Template/footer.php";
+require "template/footer.php";
 ?>

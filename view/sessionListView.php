@@ -1,5 +1,6 @@
 <?php
 session_start();
+<<<<<<< HEAD
 // require "../Model/db.php";
 // require "../Model/sessionStudentManager.php";
 // require "../Model/userManager.php";
@@ -8,6 +9,16 @@ session_start();
 // $apprenants = getUsers($db);
 // $code = getSessions($db);
 include "template/header.php";
+=======
+
+require "model/session.php";
+require "model/user.php";
+// require "deleteSessionTreatment.php";
+$db = connectToDataBAse();
+$apprenants = getUsers($db);
+$code = getSessions($db);
+include "view/template/header.php";
+>>>>>>> 26c5c53009e8f676088ed5a7753b070ed9213742
 ?>
 <div class="container-fluid row ">
   <div class="col-6 p-0">

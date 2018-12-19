@@ -14,14 +14,20 @@
 //]
 function getRoutes() {
   return [
+
     "" => [
-      "exemple",
-      "welcome"
+      "user",
+      "loginStudent"
+    ],
+    "adminConnection" => [
+      "user",
+      "loginAdmin"
     ],
     "login" => [
       "admin",
       "loginUser"
     ],
+<<<<<<< HEAD
     "Secretary" => [
       "user",
       "homeSecretary"
@@ -37,6 +43,27 @@ function getRoutes() {
     "Secretary/progress" => [
       "user",
       "progress"
+=======
+    "Teacher" => [
+      "user",
+      "homeTeacher"
+    ],
+    "Teacher/AdmintedList" => [
+      "session",
+      "AdmintedList"
+    ],
+    "Teacher/questionList" => [
+      "question",
+      "questionList"
+    ],
+    "deconect" => [
+      "user",
+      "deconectUser"
+    ],
+    "Secretary/sessionList" => [
+      "session",
+      "sessionList"
+>>>>>>> 26c5c53009e8f676088ed5a7753b070ed9213742
     ]
   ];
 }
