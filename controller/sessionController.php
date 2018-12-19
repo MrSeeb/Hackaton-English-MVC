@@ -1,7 +1,8 @@
 <?php
 require "model/session.php"
-function AdmintedList(){
-require "view/admitedListView.php";
+
+function AdmittedList(){
+require "view/admittedListView.php";
 }
 
 function sessionList(){
