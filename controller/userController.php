@@ -1,6 +1,5 @@
 <?php
 
-//load page
 require "model/user.php";
 require "model/session.php";
 
@@ -10,10 +9,7 @@ function loginAdmin(){
       // We looking for the user in the db
       $user = getAdmin($_POST);
       //On nettoie les entrées du formulaire
-      foreach ($_POST as $key => $value)
-      {
-        $_POST[$key] = htmlspecialchars($value);
-      }
+      $_POST = clearForm($_POST);
       if ($user["status"] === "Secretary" || $user["status"] === "Secretary")
       {
         initializeUserSession($user);
@@ -25,7 +21,7 @@ function loginAdmin(){
 
 function loginStudent()
 {
-    $reponses = getDataBase()->query('SELECT u.last_name, u.first_name, s.code FROM user u INNER JOIN session s ON u.id_user = s.user_id ');
+    $reponses = connectToDataBAse()->query('SELECT u.last_name, u.first_name, s.code FROM user u INNER JOIN session s ON u.id_user = s.user_id ');
     $reponse = $reponses->fetchall();
     //Check if the form is completed
     if(!empty($_POST))
