@@ -1,6 +1,6 @@
 <?php
 //Charge the header
-include "Template/header.php";
+include "view/template/header.php";
  ?>
  <!-- Here the "?" will be replace by the information  -->
 <p class="text-center"> Question ? </p>
@@ -36,5 +36,5 @@ Here the "reponse #" will be replace by the information  -->
 
  <?php
  //Charge the footer
- include "Template/footer.php";
+ include "view/template/footer.php";
   ?>

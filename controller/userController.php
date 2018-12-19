@@ -16,6 +16,12 @@ function loginAdmin(){
         initializeUserSession($user);
         redirectTo("secretary");
       }
+      elseif($user["status"] === "Teacher" || $user["status"] === "Teacher")
+      {
+        initializeUserSession($user);
+        redirectTo("Teacher");
+      }
+      redirectTo("adminConnection");
   }
   require "view/loginAdminView.php";
 }
@@ -39,7 +45,7 @@ function loginStudent()
                 $session = $_SESSION["session"];
                 //Start a session to store the user information stored answers
                 $reponseStudent = $_SESSION["reponse"];
-                redirectTo("bravo");
+                redirectTo("testStart");
             }
         }
         redirectTo("");
