@@ -40,6 +40,10 @@ function getRoutes() {
       "question",
       "questionList"
     ],
+    "Teacher/addquestion" => [
+      "question",
+      "questionadd"
+    ],
     //=============PART SECRETARY=============//
     "Secretary" => [
       "user",
