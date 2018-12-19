@@ -42,8 +42,9 @@ function getTeacher()
 }
 
 // function to have all users
-function getUsers($db)
+function getUsers()
 {
+  $db = connectToDataBAse();
   $query = $db->query("SELECT * FROM user");
   $result = $query->fetchall(PDO::FETCH_ASSOC);
   $query->closeCursor();
@@ -85,7 +86,9 @@ function getLastUserID()
 }
 
 //Fonction for delete a user in bdd
-function deleteUser($id, $db) {
+function deleteUser($id) {
+  
+  $db = connectToDataBAse();
   $query = $db->prepare("DELETE FROM user WHERE id_user = ?");
   $result = $query->execute([$id]);
   $query->closeCursor();
