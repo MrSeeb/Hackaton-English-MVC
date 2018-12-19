@@ -4,6 +4,8 @@ require "model/sessionManager.php";
 require "model/users.php";
 $apprenants = getUsers();
 $code = getSessions();
+
+var_dump($apprenants);
 include "template/header.php";
 ?>
 <table class="table">
