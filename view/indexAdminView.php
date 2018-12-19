@@ -1,10 +1,10 @@
 <?php
 //On charge le header
-include "../Template/header.php";
+include "view/template/header.php";
 require "../Service/errorManager.php";
 //On charge le formulaire de connexion
 displayMessages();
-include "../Template/Forms/formConnectionAdmin.php";
+include "view/emplate/Forms/formConnectionAdmin.php";
 //On charge le footer
-include "../Template/footer.php";
+include "view/Template/footer.php";
 ?>

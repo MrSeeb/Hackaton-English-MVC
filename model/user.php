@@ -95,4 +95,30 @@ function deleteUser($id) {
   return $result;
 }
 
+// function to get last/firstname and the key with date
+// (date will change cause need to calculate for get the stutus of session if is finish or not)
+function getUserAndSession(){
+  $db = connectToDataBAse();
+  $userSession = $db->prepare("SELECT u.id_user ,u.first_name, u.last_name , s.code , s.created_date  FROM session AS s INNER JOIN user AS u ON  u.id_user = s.user_id");
+  $userSession->execute([]);
+  $result = $userSession->fetchall(PDO::FETCH_ASSOC);
+  $userSession->closeCursor();
+  return $result;
+}
+
+//  Start Double function delete for seesionList/////////////////////////////////////////////////
+// function to delete the user's Session
+function deleteTabUser($idU) {
+  $db = connectToDataBAse();
+  $query = $db->prepare("DELETE FROM user WHERE id_user = ?");
+  $result = $query->execute([$idU]);
+  return $result;
+}
+function deleteTabSession($idS) {
+  $db = connectToDataBAse();
+  $query = $db->prepare("DELETE FROM session WHERE user_id = ?");
+  $result = $query->execute([$idS]);
+  return $result;
+}
+//  End Double function delete for seesionList/////////////////////////////////////////////////
 ?>
