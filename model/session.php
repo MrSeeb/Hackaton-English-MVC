@@ -18,7 +18,16 @@ function getSession($user_id)
   return $session;
 }
 
-// function to add a session to the db
+//Function for converter id_user of Session table to first_name,last_name of User table
+function getJoinUserSession(){
+  $db = connectToDataBAse();
+  $query = $db->query("SELECT s.*, u.first_name, u.last_name FROM session AS s INNER JOIN user AS u WHERE s.user_id = u.id_user");
+  $result = $query->fetchall(PDO::FETCH_ASSOC);
+
+  return $result;
+  $query->closeCursor();
+}
+
 // function ok for user_id and created_date
 function addSession($session, $user_id, $code)
 {
