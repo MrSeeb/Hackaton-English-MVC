@@ -3,7 +3,7 @@
 //load page
 require "model/user.php";
 require "model/session.php";
-require "view/indexView.php";
+
 
 function loginAdmin(){
 //On charge le fichier avec les fonctions qui renvoient nos données
@@ -33,9 +33,10 @@ if(!empty($_POST)) {
    $_POST[$key] = htmlspecialchars($value);
  }
 
-  if ($secretary["last_name"] === $_POST["last_name"] && $secretary["first_name"] === $_POST["first_name"] && $secretary["user_password"] === $_POST["user_password"] ) {
+  if ($secretary["last_name"] === $_POST["last_name"] && $secretary["first_name"] === $_POST["first_name"] && $secretary["password"] === $_POST["user_password"] ) {
    redirectTo();
   }
+
  //On récupère les utilisateurs stockés
    // if($user["first_name"] === $_POST["first_name"] && $user["last_name"] === $_POST["last_name"] && $_POST["user_password"] === $user["password"]) {
    //   //On démarre une session pour y stocker les informations de l'utilisateur
@@ -58,7 +59,7 @@ require "view/loginAdminView.php";
 
 function loginStudent()
 {
-    $reponses = getDataBase()->query('SELECT u.last_name, u.first_name, s.code FROM user u INNER JOIN session s ON u.id_user = s.user_id ');
+    $reponses = connectToDataBAse()->query('SELECT u.last_name, u.first_name, s.code FROM user u INNER JOIN session s ON u.id_user = s.user_id ');
     $reponse = $reponses->fetchall();
     //Check if the form is completed
     if(!empty($_POST))
@@ -80,6 +81,7 @@ function loginStudent()
         }
         redirectTo("");
     }
+    require "view/indexView.php";
 }
 
 function homeTeacher()

@@ -23,10 +23,6 @@ function getRoutes() {
       "user",
       "loginAdmin"
     ],
-    "login" => [
-      "admin",
-      "loginUser"
-    ],
     "Teacher" => [
       "user",
       "homeTeacher"
