@@ -23,6 +23,8 @@ function getRoutes() {
       "user",
       "loginAdmin"
     ],
+
+    
     "login" => [
       "admin",
       "loginUser"
@@ -77,7 +79,14 @@ function getRoutes() {
     ],
     "deconect" => [
       "user",
-      "deconectUser"
+      "logoutUser"
+      // ["id" => ["integer"]]
+    ],
+
+    "deleteUser" => [
+      "user",
+      "eraser",
+        ["id" => ["integer"]],
     ]
   ];
 }

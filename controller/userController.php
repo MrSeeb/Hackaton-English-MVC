@@ -64,7 +64,8 @@ function homeSecretary()
   require 'view/homeSecretaryView.php';
 }
 
-function deconectUser()
+// function to logout session /////////////////////////////
+function logoutUser()
 {
   session_start();
   if (isLogged()) {
@@ -74,8 +75,9 @@ function deconectUser()
   else {
     redirectTo("");
   }
+  var_dump(session_start());
 }
-
+//////////////////////////////////////////////////////////
 function addStudent(){
   if(!empty($_POST)){
         addUser($_POST);
@@ -100,7 +102,28 @@ function results(){
 }
 
 function progress(){
+  $userSessions = getUserAndSession();
+
   require 'view/sessionListView.php';
 }
 
+
+
+/////////////////////////////////////////////////////////////
+// need! : modify the error message to redirect
+function eraser(){
+
+  if (isset($_GET["id"])) {
+    $deleteTabUser = deleteTabUser(intval($_GET["id"]));
+
+    if ($deleteTabUser) {
+    deleteTabSession(intval($_GET["id"]));
+    }
+      redirectTo("Secretary/progress");
+
+      exit;
+    }
+    redirectTo("Secretary/progress,error");
+}
+////////////////////////////////////////////////////////////
 ?>
