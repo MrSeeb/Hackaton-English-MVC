@@ -1,29 +1,9 @@
 <?php
-
-<<<<<<< HEAD
 //---------------------PART SECRETARY--------------------//
 
-function homeSecretary(){
-  require 'view/homeSecretaryView.php';
-}
-
-function addStudent(){
-  require 'view/createSessionStudentView.php';
-}
-
-function results(){
-  require 'view/admittedListView.php';
-}
-
-function progress(){
-  require 'view/sessionListView.php';
-}
- ?>
-=======
 //load page
 require "model/user.php";
 require "model/session.php";
-require "view/indexView.php";
 
 function loginAdmin(){
 //On charge le fichier avec les fonctions qui renvoient nos données
@@ -107,6 +87,10 @@ function homeTeacher()
   require "view/homeTeacherView.php";
 }
 
+function homeSecretary(){
+  require 'view/homeSecretaryView.php';
+}
+
 function deconectUser()
 {
   session_start();
@@ -119,5 +103,16 @@ function deconectUser()
   }
 }
 
+function addStudent(){
+  require 'view/createSessionStudentView.php';
+}
+
+function results(){
+  require 'view/admittedListView.php';
+}
+
+function progress(){
+  require 'view/sessionListView.php';
+}
+
 ?>
->>>>>>> 26c5c53009e8f676088ed5a7753b070ed9213742

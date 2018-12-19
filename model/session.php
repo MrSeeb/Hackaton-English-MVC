@@ -1,6 +1,6 @@
 <?php
 // function to have all sessions test
-function getSessions($db)
+function getSessions()
 {
   $db = connectToDataBAse();
   $query = $db->query("SELECT * FROM session");
@@ -11,7 +11,7 @@ function getSessions($db)
 // function to have one session
 function getSession($user_id)
 {
-  $db = connectToDataBAse();
+  $db = getDataBase();
   $query = $db->prepare("SELECT * FROM session WHERE user_id=?");
   $query->execute([$user_id]);
   $session = $query->fetch(PDO::FETCH_ASSOC);
@@ -22,12 +22,11 @@ function getSession($user_id)
 // function ok for user_id and created_date
 function addSession($session, $user_id, $code)
 {
-  $db = connectToDataBAse();
-  $query = $db->prepare("INSERT INTO session (user_id, code, created_date, is_started, start_qcm_date, end_qcm_date, result, level) VALUES(:user_id, :code, CURDATE(),:is_started, :start_qcm_date, :end_qcm_date, :result, :level)");
+  $db = getDataBase();
+  $query = $db->prepare("INSERT INTO session (user_id, code, created_date, start_qcm_date, end_qcm_date, result, level) VALUES(:user_id, :code, CURDATE(), :start_qcm_date, :end_qcm_date, :result, :level)");
   $result = $query->execute([
     "user_id" => $user_id,
     "code" => $code,
-    "is_started" => 0,
     "start_qcm_date" => $session["start_qcm_date"],
     "end_qcm_date" => $session["end_qcm_date"],
     "result" => $session["result"],
