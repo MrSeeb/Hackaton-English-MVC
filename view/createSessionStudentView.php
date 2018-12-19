@@ -1,9 +1,9 @@
 <?php
 
-require "../Service/errorManager.php";
+// require "service/errorManager.php";
 session_start();
-include "../Template/header.php";
-displayMessages();
-include "../Template/Forms/formCreateSession.php";
-include "../Template/footer.php";
+include "template/header.php";
+// displayMessages();
+include "form/formCreateSession.php";
+include "template/footer.php";
 ?>

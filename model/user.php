@@ -9,7 +9,18 @@ function getUser($lastName)
   $query->closeCursor();
   return $user;
 }
-
+function getAdmin($post)
+{
+  $db = connectToDataBAse();
+  $query = $db->prepare("SELECT * FROM user WHERE last_name = :last_name AND first_name = :first_name AND password = :password");
+  $query->execute([
+    "last_name" => $post["last_name"],
+    "first_name" => $post["first_name"],
+    "password" => $post["user_password"]]);
+  $user = $query->fetch(PDO::FETCH_ASSOC);
+  $query->closeCursor();
+  return $user;
+}
 // function to have secretary
 function isSecretary()
 {
@@ -31,8 +42,9 @@ function getTeacher()
 }
 
 // function to have all users
-function getUsers($db)
+function getUsers()
 {
+  $db = connectToDataBAse();
   $query = $db->query("SELECT * FROM user");
   $result = $query->fetchall(PDO::FETCH_ASSOC);
   $query->closeCursor();
@@ -74,11 +86,39 @@ function getLastUserID()
 }
 
 //Fonction for delete a user in bdd
-function deleteUser($id, $db) {
+function deleteUser($id) {
+
+  $db = connectToDataBAse();
   $query = $db->prepare("DELETE FROM user WHERE id_user = ?");
   $result = $query->execute([$id]);
   $query->closeCursor();
   return $result;
 }
 
+// function to get last/firstname and the key with date
+// (date will change cause need to calculate for get the stutus of session if is finish or not)
+function getUserAndSession(){
+  $db = connectToDataBAse();
+  $userSession = $db->prepare("SELECT u.id_user ,u.first_name, u.last_name , s.code , s.created_date  FROM session AS s INNER JOIN user AS u ON  u.id_user = s.user_id");
+  $userSession->execute([]);
+  $result = $userSession->fetchall(PDO::FETCH_ASSOC);
+  $userSession->closeCursor();
+  return $result;
+}
+
+//  Start Double function delete for seesionList/////////////////////////////////////////////////
+// function to delete the user's Session
+function deleteTabUser($idU) {
+  $db = connectToDataBAse();
+  $query = $db->prepare("DELETE FROM user WHERE id_user = ?");
+  $result = $query->execute([$idU]);
+  return $result;
+}
+function deleteTabSession($idS) {
+  $db = connectToDataBAse();
+  $query = $db->prepare("DELETE FROM session WHERE user_id = ?");
+  $result = $query->execute([$idS]);
+  return $result;
+}
+//  End Double function delete for seesionList/////////////////////////////////////////////////
 ?>
