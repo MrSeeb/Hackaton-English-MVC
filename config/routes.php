@@ -27,6 +27,23 @@ function getRoutes() {
       "admin",
       "loginUser"
     ],
+
+    "Secretary" => [
+      "user",
+      "homeSecretary"
+    ],
+    "Secretary/addStudent" => [
+      "user",
+      "addStudent"
+    ],
+    "Secretary/results" => [
+      "user",
+      "results"
+    ],
+    "Secretary/progress" => [
+      "user",
+      "progress"
+
     "Teacher" => [
       "user",
       "homeTeacher"
@@ -53,6 +70,7 @@ function getRoutes() {
     "Secretary/sessionList" => [
       "session",
       "sessionList"
+
     ],
     "testStart"=> [
     "session",

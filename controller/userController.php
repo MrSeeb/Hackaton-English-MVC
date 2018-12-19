@@ -1,4 +1,5 @@
 <?php
+//---------------------PART SECRETARY--------------------//
 
 require "model/user.php";
 require "model/session.php";
@@ -51,9 +52,8 @@ function homeTeacher()
   require "view/homeTeacherView.php";
 }
 
-function homeSecretary()
-{
-  require "view/homeSecretaryView.php";
+function homeSecretary(){
+  require 'view/homeSecretaryView.php';
 }
 
 function deconectUser()
@@ -66,6 +66,18 @@ function deconectUser()
   else {
     redirectTo("");
   }
+}
+
+function addStudent(){
+  require 'view/createSessionStudentView.php';
+}
+
+function results(){
+  require 'view/admittedListView.php';
+}
+
+function progress(){
+  require 'view/sessionListView.php';
 }
 
 ?>
