@@ -70,7 +70,6 @@ function getRoutes() {
     "Secretary/sessionList" => [
       "session",
       "sessionList"
-
     ],
     "testStart"=> [
     "session",
