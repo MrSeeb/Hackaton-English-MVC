@@ -39,7 +39,7 @@ function getRoutes() {
       "session",
       "admittedList"
     ],
-    "teacher/questionList" => [
+    "Teacher/questionList" => [
       "question",
       "questionList"
     ],
@@ -57,11 +57,11 @@ function getRoutes() {
       "addStudent"
     ],
 
-    "Secretary/sessionList" => [
+    "secretary/sessionList" => [
       "session",
       "sessionList"
     ],
-    "Secretary/results" => [
+    "secretary/results" => [
       "user",
       "results"
     ],

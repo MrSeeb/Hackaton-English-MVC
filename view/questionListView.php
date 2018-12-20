@@ -1,16 +1,8 @@
 <?php
-
+require "model/question.php";
 include "view/template/header.php";
-$db = connectToDataBAse();
 
-$query_question = $db->query('SELECT * FROM question');
-
-$question = $query_question->fetchall(PDO::FETCH_ASSOC);
-
-$query_reponse = $db->query('SELECT * FROM reponse');
-
-$reponse = $query_reponse->fetchall(PDO::FETCH_ASSOC);
-
+$questions = getQuestions();
  ?>
 
 <section>
@@ -21,46 +13,28 @@ $reponse = $query_reponse->fetchall(PDO::FETCH_ASSOC);
   </div>
   <div class="mx-auto mt-3">
     <!-- Presentation of questions + reponses -->
+    <?php foreach ($questions as $key => $question){?>
     <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Question</th>
-          <th scope="col">Réponse</th>
-          <th scope="col">Options</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <?php foreach ($question as $key => $value)
-            {
-              echo $value['question']. "<br>" ;
-            }
-            ?>
-          </td>
-
-          <td>
-            <?php foreach ($reponse as $key => $value)
-            {
-              echo $value['reponse']. "<br>";
-            }
-            ?>
-          </td>
-          <td>
-            <?php foreach ($reponse as $key => $value) {
-              if(!empty($reponse)) {
-                echo "<button type='submit' class='btn btn-warning'>Modifier</button>
-                <button type='button' class='btn btn-danger'>Supprimer</button>". "<br>";
-              }
-              else {
-                echo "nop";
-              }
-            }
-
-            ?>
-          </td>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Question 1 : <?php echo $question["question"]; ?></th>
+            <th scope="col"><a href="#"> modifier</a> </th>
           </tr>
+        </thead>
+        <tbody>
+          <?php
+          $responses = getResponsesQuestion($question["id_question"]);
+          foreach ($responses as $key => $response){?>
+          <tr>
+            <th scope="col">@</th>
+            <td scope="col"><?php echo $response["response"];?></td>
+            <td scope="col"><?php echo  ($response["is_correct"])? "Vrai" : "Faux"; ?> </td>
+          </tr>
+            <?php } ?>
+        </tbody>
     </table>
+  <?php } ?>
   </div>
 </section>
  <?php

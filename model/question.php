@@ -33,13 +33,25 @@ function getQuestion($id)
 }
 
 //Fonction qui ajoute une question en DB
-function addQuestion()
+// function addQuestion()
+// {
+//     $db = connectToDataBAse();
+//     $query = $db->prepare("INSERT INTO question (question) VALUES(:question)");
+//     $result = $query->execute([
+//         "question" => $_POST["question"]
+//     ]);
+// }
+
+//Function to get the question whis their response
+function getResponsesQuestion($id)
 {
-    $db = connectToDataBAse();
-    $query = $db->prepare("INSERT INTO question (question) VALUES(:question)");
-    $result = $query->execute([
-        "question" => $_POST["question"]
-    ]);
+  $db = connectToDataBAse();
+  $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? ");
+  $query->execute([$id]);
+  $questions = $query->fetchall(PDO::FETCH_ASSOC);
+  return $questions;
+  $query->closeCursor();
+
 }
 //Add Reponse to the datatbase
 function addReponse($question_id)

@@ -7,4 +7,5 @@ function questionList(){
 function addQuestion(){
   require "view/addQuestionView.php";
 }
+
  ?>
