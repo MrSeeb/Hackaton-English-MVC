@@ -12,14 +12,14 @@ $questions = getQuestions();
     <a <?php setHref('teacher/addQuestion'); ?> class="btn btn-primary btn-lg active" role="button">Ajouter +</a>
   </div>
   <div class="mx-auto mt-3">
-    <!-- Presentation of questions + reponses -->
+    <!-- Presentation of questions + responses -->
     <?php foreach ($questions as $key => $question){?>
     <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Question 1 : <?php echo $question["question"]; ?></th>
-            <th scope="col"><a href="#"> modifier</a> </th>
+            <th scope="col"><a <?php setHref("teacher/updateQuestion", ["id" => $question['id_question']]) ?>> modifier</a> </th>
           </tr>
         </thead>
         <tbody>

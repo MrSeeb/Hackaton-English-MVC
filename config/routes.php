@@ -49,8 +49,8 @@ function getRoutes() {
     ],
     "teacher/updateQuestion" => [
       "question",
-      "updateQuestion"
-    ]
+      "updateOneQuestion"
+    ],
     //=============PART SECRETARY=============//
     "secretary" => [
       "user",
