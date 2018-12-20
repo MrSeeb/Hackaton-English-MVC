@@ -24,42 +24,42 @@ function getRoutes() {
       "loginAdmin"
     ],
 
-    
+
     "login" => [
       "admin",
       "loginUser"
     ],
     //=============PART TEACHER============//
-    "Teacher" => [
+    "teacher" => [
       "user",
       "homeTeacher"
     ],
-    "Teacher/AdmintedList" => [
+    "teacher/AdmintedList" => [
       "session",
-      "AdmintedList"
+      "AdmittedList"
     ],
-    "Teacher/questionList" => [
+    "teacher/questionList" => [
       "question",
       "questionList"
     ],
-    "Teacher/addquestion" => [
+    "teacher/addquestion" => [
       "question",
-      "questionadd"
+      "addQuestion"
     ],
     //=============PART SECRETARY=============//
-    "Secretary" => [
+    "secretary" => [
       "user",
       "homeSecretary"
     ],
-    "Secretary/addStudent" => [
+    "secretary/addstudent" => [
       "user",
       "addStudent"
     ],
-    "Secretary/results" => [
+    "secretary/results" => [
       "user",
       "results"
     ],
-    "Secretary/progress" => [
+    "secretary/progress" => [
       "user",
       "progress"
     ],

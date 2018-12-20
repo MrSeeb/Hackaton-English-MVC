@@ -20,7 +20,7 @@ function loginAdmin()
     elseif($user["status"] === "Teacher" || $user["status"] === "Teacher")
     {
       initializeUserSession($user);
-      redirectTo("Teacher");
+      redirectTo("teacher");
     }
     redirectTo("adminConnection");
   }
