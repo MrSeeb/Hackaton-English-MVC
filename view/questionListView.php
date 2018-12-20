@@ -17,7 +17,7 @@ $reponse = $query_reponse->fetchall(PDO::FETCH_ASSOC);
   <h2>Panel d'adminisatration</h2>
   <div class="d-flex justify-content-end">
     <!-- Add entity in table -->
-    <a href="addQuestion.php" class="btn btn-primary btn-lg active" role="button">Ajouter +</a>
+    <a <?php setHref('teacher/addQuestion'); ?> class="btn btn-primary btn-lg active" role="button">Ajouter +</a>
   </div>
   <div class="mx-auto mt-3">
     <!-- Presentation of questions + reponses -->

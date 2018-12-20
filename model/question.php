@@ -38,7 +38,7 @@ function addQuestion()
     $db = connectToDataBAse();
     $query = $db->prepare("INSERT INTO question (question) VALUES(:question)");
     $result = $query->execute([
-        "question" => $_POST["question"],
+        "question" => $_POST["question"]
     ]);
 }
 //Add Reponse to the datatbase

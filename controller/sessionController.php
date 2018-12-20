@@ -1,7 +1,7 @@
 <?php
-require "model/session.php"
+require "model/session.php";
 
-function AdmittedList(){
+function admittedList(){
 require "view/admittedListView.php";
 }
 
@@ -17,6 +17,11 @@ function testStart(){
 function test(){
   // var_dump($_SESSION); la session a t elle été initialisée au niveau du login?
   require "view/testStudentView.php";
+}
+
+function testEnd(){
+  // var_dump($_SESSION); la session a t elle été initialisée au niveau du login?
+  require "view/testStudentEndView.php";
 }
 
 
