@@ -20,7 +20,7 @@ function loginAdmin()
     elseif($user["status"] === "Teacher" || $user["status"] === "Teacher")
     {
       initializeUserSession($user);
-      redirectTo("Teacher");
+      redirectTo("teacher");
     }
     redirectTo("adminConnection");
   }
@@ -91,7 +91,7 @@ function addStudent(){
         }
         else{
           // if addsession is false : we header locate to createSessionStudent.php
-            redirectTo('secretary/addstudent');
+            redirectTo('secretary/addStudent');
         }
       }
   require 'view/createSessionStudentView.php';
@@ -119,11 +119,11 @@ function eraser(){
     if ($deleteTabUser) {
     deleteTabSession(intval($_GET["id"]));
     }
-      redirectTo("Secretary/progress");
+      redirectTo("secretary/progress");
 
       exit;
     }
-    redirectTo("Secretary/progress,error");
+    redirectTo("secretary/progress");
 }
 ////////////////////////////////////////////////////////////
 ?>

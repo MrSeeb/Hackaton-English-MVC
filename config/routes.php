@@ -34,24 +34,32 @@ function getRoutes() {
       "user",
       "homeTeacher"
     ],
+<<<<<<< HEAD
     "teacher/admintedList" => [
+=======
+    "teacher/admittedList" => [
+>>>>>>> 218733244181f56a1d881aba20538c0e13a62bf8
       "session",
-      "AdmintedList"
+      "admittedList"
     ],
     "teacher/questionList" => [
       "question",
       "questionList"
     ],
+<<<<<<< HEAD
     "teacher/addquestion" => [
+=======
+    "teacher/addQuestion" => [
+>>>>>>> 218733244181f56a1d881aba20538c0e13a62bf8
       "question",
-      "questionadd"
+      "addQuestion"
     ],
     //=============PART SECRETARY=============//
     "secretary" => [
       "user",
       "homeSecretary"
     ],
-    "secretary/addstudent" => [
+    "secretary/addStudent" => [
       "user",
       "addStudent"
     ],
@@ -91,5 +99,4 @@ function getRoutes() {
     ]
   ];
 }
-
- ?>
+?>
