@@ -1,8 +1,4 @@
-<?php
-include "view/template/header.php";
-
-$questions = getQuestions();
- ?>
+<?php include "view/template/header.php"; ?>
 
 <section>
   <h2>Gestion des questions</h2>
@@ -36,6 +32,4 @@ $questions = getQuestions();
   <?php } ?>
   </div>
 </section>
- <?php
-include "view/template/footer.php";
- ?>
+<?php include "view/template/footer.php"; ?>

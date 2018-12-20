@@ -2,6 +2,7 @@
 require "model/question.php";
 
 function questionList(){
+  $questions = getQuestions();
   require "view/questionListView.php";
 }
 
