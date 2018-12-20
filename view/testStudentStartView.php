@@ -1,5 +1,5 @@
 <?php
-include "Template/header.php";
+include "view/template/header.php";
 ?>
 
   <section class="card mx-auto w-50">
@@ -19,4 +19,4 @@ include "Template/header.php";
     </div>
   </section>
 
-<?php include "Template/footer.php";?>
+<?php include "view/template/footer.php";?>

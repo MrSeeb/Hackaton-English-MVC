@@ -1,11 +1,9 @@
 <?php
 session_start();
-require "model/sessionManager.php";
-require "model/users.php";
-$apprenants = getUsers();
-$code = getSessions();
 
-var_dump($apprenants);
+//Stock the new join table
+$sessions = getJoinUserSession();
+
 include "template/header.php";
 ?>
 <table class="table">
@@ -18,26 +16,14 @@ include "template/header.php";
         </tr>
     </thead>
     <tbody>
-    <?php
-    foreach ($apprenants as $key => $result)
-    {
-        if ($result["status"] === "user")
-        {
-        ?>
+      <?php foreach ($sessions as $key => $value){ ?>
         <tr>
-            <th scope="row"> <?php echo $result["first_name"]; ?> <?php echo $result["last_name"]; ?> </th>
-            <?php
-        }
-    }
-    foreach ($code as $key => $theKey)
-    {
-        ?>
-            <td scope="row">  <?php echo $theKey["result"]; ?> </td>
-            <td scope="row"><?php echo $theKey["level"] ;  ?> </td>
+          <td><?php echo $value['first_name']; echo " " .$value['last_name']; ?></td>
+          <td><?php echo $value['result']; ?></td>
+          <td><?php echo $value['level'];?></td>
+          <td><?php echo '<a class="btn btn-primary" href="#" role="button">More Infos</a>';?></td>
         </tr>
-    <?php
-    }
-    ?>
+      <?php } ?>
     </tbody>
 </table>
 <?php include "template/footer.php"; ?>
