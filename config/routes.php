@@ -24,42 +24,43 @@ function getRoutes() {
       "loginAdmin"
     ],
 
-    
+
     "login" => [
       "admin",
       "loginUser"
     ],
     //=============PART TEACHER============//
-    "Teacher" => [
+    "teacher" => [
       "user",
       "homeTeacher"
     ],
-    "Teacher/AdmintedList" => [
+    "teacher/admintedList" => [
       "session",
       "AdmintedList"
     ],
-    "Teacher/questionList" => [
+    "teacher/questionList" => [
       "question",
       "questionList"
     ],
     //=============PART SECRETARY=============//
-    "Secretary" => [
+    "secretary" => [
       "user",
       "homeSecretary"
     ],
-    "Secretary/addStudent" => [
+    "secretary/addstudent" => [
       "user",
       "addStudent"
     ],
-    "Secretary/results" => [
+    "secretary/results" => [
       "user",
       "results"
     ],
-    "Secretary/progress" => [
+    "secretary/progress" => [
       "user",
       "progress"
     ],
-    "testStart"=> [
+    //=============PART TEST STUDENT=============//
+    "teststart"=> [
     "session",
     "testStart" ,
     // ["id" => ["integer"]],
@@ -69,13 +70,13 @@ function getRoutes() {
       "test",
       // ["id" => ["integer"]],
     ],
-    "logoutUser" => [
+    "logoutuser" => [
       "user",
       "logoutUser"
       // ["id" => ["integer"]]
     ],
 
-    "deleteUser" => [
+    "deleteuser" => [
       "user",
       "eraser",
         ["id" => ["integer"]],
