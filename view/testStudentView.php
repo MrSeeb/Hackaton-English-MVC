@@ -31,7 +31,7 @@ Here the "reponse #" will be replace by the information  -->
 <div class="row">
   <button type="button" class="btn btn-success col-12 mt-4">Valider</button>
   <p class="text-danger text-center col-12 mt-4">Attention :  en cliquant sur le boutton terminé le teste ne seras plus disponible. </p>
-  <a <?php setHref("testEnd"); ?> class="btn btn-outline-danger col-12">Terminer le test !</a>
+  <a <?php setHref("testend"); ?> class="btn btn-outline-danger col-12">Terminer le test !</a>
 </div>
 
  <?php
