@@ -25,7 +25,7 @@ function getQuestions()
 function getQuestion($id)
 {
     $db = connectToDataBAse();
-    $query = $db->prepare("SELECT * FROM question WHERE id=?");
+    $query = $db->prepare("SELECT * FROM question WHERE id_question=?");
     $query->execute([$id]);
     $question = $query->fetch(PDO::FETCH_ASSOC);
     return $question;
@@ -52,6 +52,29 @@ function getResponsesQuestion($id)
   return $questions;
   $query->closeCursor();
 }
+
+// function to get the false's responses
+function getResponsesQuestionFalse($id)
+{
+  $db = connectToDataBAse();
+  $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? AND r.is_correct = 0");
+  $query->execute([$id]);
+  $questions = $query->fetchall(PDO::FETCH_ASSOC);
+  return $questions;
+  $query->closeCursor();
+}
+
+// function to get the true response
+function getResponsesQuestionTrue($id)
+{
+  $db = connectToDataBAse();
+  $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? AND r.is_correct = 1");
+  $query->execute([$id]);
+  $questions = $query->fetchall(PDO::FETCH_ASSOC);
+  return $questions;
+  $query->closeCursor();
+}
+
 
 //Add response to the datatbase
 function addresponse($question_id)

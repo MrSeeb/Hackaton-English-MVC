@@ -1,4 +1,4 @@
-response<div class="container col-6">
+<div class="container col-6">
     <!-- form action a remplir quand toutes les pages seront crées-->
     <form method="post" action="">
         <!-- Input ou la prof inscrit la question qu'elle va poser lors du quizz -->
