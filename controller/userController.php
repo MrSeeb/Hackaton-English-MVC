@@ -112,6 +112,7 @@ function progress(){
 
 function singleSecretary(){
    $user_id = $_GET['id'];
+  // stock information's user by id session
    $user = getUserbySessionID($user_id);
    
   require 'view/singleSecretaryView.php';
