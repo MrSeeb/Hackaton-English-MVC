@@ -36,7 +36,7 @@ function getRoutes() {
     ],
     "teacher/admintedlist" => [
       "session",
-      "AdmittedList"
+      "admittedList"
     ],
     "teacher/questionlist" => [
       "question",
