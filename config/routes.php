@@ -34,7 +34,7 @@ function getRoutes() {
       "user",
       "homeTeacher"
     ],
-    "teacher/admintedList" => [
+    "teacher/admittedList" => [
       "session",
       "admittedList"
     ],
