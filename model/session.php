@@ -27,6 +27,16 @@ function getJoinUserSession(){
   return $result;
   $query->closeCursor();
 }
+//Function get information of user by id_session
+function getUserbySessionID($id){
+  $db = connectToDataBAse();
+  $query = $db->prepare("SELECT s.id_session, s.created_date, s.start_qcm_date, u.id_user, u.first_name, u.last_name FROM session AS s INNER JOIN user AS u WHERE $id = u.id_user");
+  $query->execute([$id]);
+  $result = $query->fetch(PDO::FETCH_ASSOC);
+
+  return $result;
+  $query->closeCursor();
+}
 
 // function ok for user_id and created_date
 function addSession($session, $user_id, $code)

@@ -23,8 +23,6 @@ function getRoutes() {
       "user",
       "loginAdmin"
     ],
-
-
     "login" => [
       "admin",
       "loginUser"
@@ -34,11 +32,7 @@ function getRoutes() {
       "user",
       "homeTeacher"
     ],
-<<<<<<< HEAD
-    "teacher/admintedList" => [
-=======
     "teacher/admittedList" => [
->>>>>>> 218733244181f56a1d881aba20538c0e13a62bf8
       "session",
       "admittedList"
     ],
@@ -46,11 +40,7 @@ function getRoutes() {
       "question",
       "questionList"
     ],
-<<<<<<< HEAD
-    "teacher/addquestion" => [
-=======
     "teacher/addQuestion" => [
->>>>>>> 218733244181f56a1d881aba20538c0e13a62bf8
       "question",
       "addQuestion"
     ],
@@ -70,6 +60,11 @@ function getRoutes() {
     "secretary/progress" => [
       "user",
       "progress"
+    ],
+    "secretary/single" => [
+      "user",
+      "singleSecretary",
+      ["id" => ["integer"]]
     ],
     //=============PART TEST STUDENT=============//
     "teststart"=> [

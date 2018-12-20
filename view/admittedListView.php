@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-//Stock the new join table
-$sessions = getJoinUserSession();
-
 include "template/header.php";
 ?>
 <table class="table">
@@ -21,7 +18,7 @@ include "template/header.php";
           <td><?php echo $value['first_name']; echo " " .$value['last_name']; ?></td>
           <td><?php echo $value['result']; ?></td>
           <td><?php echo $value['level'];?></td>
-          <td><?php echo '<a class="btn btn-primary" href="#" role="button">More Infos</a>';?></td>
+          <td><a class="btn btn-primary" <?php setHref('secretary/single', ['id' => $sessions[0]['user_id']]);?> role="button">More Infos</a></td>
         </tr>
       <?php } ?>
     </tbody>

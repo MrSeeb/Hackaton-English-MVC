@@ -98,6 +98,9 @@ function addStudent(){
 }
 
 function results(){
+  //Stock the new join table
+  $sessions = getJoinUserSession();
+
   require 'view/admittedListView.php';
 }
 
@@ -105,6 +108,13 @@ function progress(){
   $userSessions = getUserAndSession();
 
   require 'view/sessionListView.php';
+}
+
+function singleSecretary(){
+   $user_id = $_GET['id'];
+   $user = getUserbySessionID($user_id);
+   
+  require 'view/singleSecretaryView.php';
 }
 
 
