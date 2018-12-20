@@ -103,4 +103,11 @@ function eraser(){
     redirectTo("Secretary/progress,error");
 }
 ////////////////////////////////////////////////////////////
+
+
+
+function showSingle(){
+
+    require 'view/singleView.php';
+}
 ?>

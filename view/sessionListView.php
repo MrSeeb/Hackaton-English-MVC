@@ -2,8 +2,7 @@
 session_start();
 // require "deleteSessionTreatment.php";
 
-include "view/template/header.php";
-?>
+include "view/template/header.php";?>
 <div class="container-fluid">
       <table class="table">
         <thead class="thead-dark">
@@ -36,3 +35,5 @@ include "view/template/header.php";
     </tbody>
     </table>
 </div>
+
+<?php include "view/template/footer.php"; ?>

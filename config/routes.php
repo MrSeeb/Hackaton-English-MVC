@@ -87,6 +87,11 @@ function getRoutes() {
       "user",
       "eraser",
         ["id" => ["integer"]],
+    ],
+    "single" => [
+      "user",
+      "showSingle"
+        // ["id" => ["integer"]],
     ]
 
   ];
