@@ -42,6 +42,10 @@ function getRoutes() {
       "question",
       "questionList"
     ],
+    "teacher/addquestion" => [
+      "question",
+      "questionadd"
+    ],
     //=============PART SECRETARY=============//
     "secretary" => [
       "user",
@@ -70,7 +74,11 @@ function getRoutes() {
       "test",
       // ["id" => ["integer"]],
     ],
-    "logoutuser" => [
+    "testEnd" => [
+      "session",
+      "testEnd"
+    ],
+    "deconect" => [
       "user",
       "logoutUser"
       // ["id" => ["integer"]]

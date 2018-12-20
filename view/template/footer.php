@@ -5,7 +5,7 @@
     <i class="far fa-envelope"></i> <a href="mailto:contact@adep-roubaix.fr?subject=Renseignements">contact@adep-roubaix.fr</a>
     <i class="fab fa-twitter"></i> <a href="https://twitter.com/adeproubaix/">@adeproubaix</a>
     <i class="fab fa-facebook-f"></i> <a href="https://facebook.com/adeproubaix">ADEPdeRoubaix</a>
-    <i class="fas fa-lock"></i> <a <?php setHref('adminConnection') ?> >Espace admin</a>
+    <i class="fas fa-lock"></i> <a <?php setHref("adminConnection"); ?>>Espace admin</a>
   </div>
 </footer>
 
