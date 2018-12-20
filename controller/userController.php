@@ -22,7 +22,7 @@ function loginAdmin()
       initializeUserSession($user);
       redirectTo("teacher");
     }
-    redirectTo("adminconnection");
+    redirectTo("adminConnection");
   }
   require "view/loginAdminView.php";
 }
@@ -46,7 +46,7 @@ function loginStudent()
         $session = $_SESSION["session"];
         //Start a session to store the user information stored answers
         $reponseStudent = $_SESSION["reponse"];
-        redirectTo("teststart");
+        redirectTo("testStart");
       }
     }
     redirectTo("");
@@ -91,7 +91,7 @@ function addStudent(){
         }
         else{
           // if addsession is false : we header locate to createSessionStudent.php
-            redirectTo('secretary/addstudent');
+            redirectTo('secretary/addStudent');
         }
       }
   require 'view/createSessionStudentView.php';

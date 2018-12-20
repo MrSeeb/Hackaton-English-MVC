@@ -19,7 +19,7 @@ function getRoutes() {
       "user",
       "loginStudent"
     ],
-    "adminconnection" => [
+    "adminConnection" => [
       "user",
       "loginAdmin"
     ],
@@ -34,15 +34,15 @@ function getRoutes() {
       "user",
       "homeTeacher"
     ],
-    "teacher/admintedlist" => [
+    "teacher/admintedList" => [
       "session",
       "AdmittedList"
     ],
-    "teacher/questionlist" => [
+    "teacher/questionList" => [
       "question",
       "questionList"
     ],
-    "teacher/addquestion" => [
+    "teacher/addQuestion" => [
       "question",
       "addQuestion"
     ],
@@ -51,7 +51,7 @@ function getRoutes() {
       "user",
       "homeSecretary"
     ],
-    "secretary/addstudent" => [
+    "secretary/addStudent" => [
       "user",
       "addStudent"
     ],
@@ -63,7 +63,7 @@ function getRoutes() {
       "user",
       "progress"
     ],
-    "teststart"=> [
+    "testStart"=> [
     "session",
     "testStart" ,
     // ["id" => ["integer"]],
@@ -73,7 +73,7 @@ function getRoutes() {
       "test",
       // ["id" => ["integer"]],
     ],
-    "testend" => [
+    "testEnd" => [
       "session",
       "testEnd"
     ],
@@ -83,7 +83,7 @@ function getRoutes() {
       // ["id" => ["integer"]]
     ],
 
-    "deleteuser" => [
+    "deleteUser" => [
       "user",
       "eraser",
         ["id" => ["integer"]],

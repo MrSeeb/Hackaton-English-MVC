@@ -25,7 +25,7 @@ include "view/template/header.php";
           <td scope="row"> <?php echo $userSession["first_name"] ;?> </td>
           <td scope="row">  <?php echo $userSession["code"] ?> </td>
           <td scope="row"><?php echo $userSession["created_date"] ;  ?> </td>
-          <td scope="row"><a <?php  setHref("deleteuser",["id" => $userSession['id_user']]); ?> class="btn btn-danger btn">Supprimer</a></td>
+          <td scope="row"><a <?php  setHref("deleteUser",["id" => $userSession['id_user']]); ?> class="btn btn-danger btn">Supprimer</a></td>
 
         </tr>
       </thead>

@@ -1,7 +1,7 @@
 <?php
 require "model/session.php";
 
-function AdmittedList(){
+function admittedList(){
 require "view/admittedListView.php";
 }
 
