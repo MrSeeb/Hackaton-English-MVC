@@ -123,7 +123,7 @@ function eraser(){
 
       exit;
     }
-    redirectTo("secretary/progress,error");
+    redirectTo("secretary/progress");
 }
 ////////////////////////////////////////////////////////////
 ?>
