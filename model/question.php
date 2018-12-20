@@ -51,15 +51,15 @@ function getResponsesQuestion($id)
   $questions = $query->fetchall(PDO::FETCH_ASSOC);
   return $questions;
   $query->closeCursor();
-
 }
-//Add Reponse to the datatbase
-function addReponse($question_id)
+
+//Add response to the datatbase
+function addresponse($question_id)
 {
      $db = connectToDataBAse();
-     $query = $db->prepare("INSERT INTO reponse (reponse, question_id) VALUES(:reponse, :question_id)");
+     $query = $db->prepare("INSERT INTO response (response, question_id) VALUES(:response, :question_id)");
      $result = $query->execute([
-        "reponse" => $_POST["reponse"],
+        "response" => $_POST["response"],
         "question_id" => $question_id
       ]);
 }
