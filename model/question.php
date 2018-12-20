@@ -88,16 +88,27 @@ function addresponse($question_id)
 }
 
 //Fonction pour modifier les valeurs d'une question en base de données
-function updateQuestion($question)
+function updateQuestion($post)
 {
     $db = connectToDataBAse();
-    $query = $db->prepare("UPDATE question SET question = :question WHERE id_question = :id");
+    $query = $db->prepare("UPDATE question SET question = :question WHERE id_question = :id_question");
     $result = $query->execute([
-        "id" => $question["id"],
-        "question" => $question["question"]
+        "id_question" => $post["id_question"],
+        "question" => $post["question"]
     ]);
     return $result;
     $query->closeCursor();
+}
+function updateResponse($post)
+{
+  $db = connectToDataBAse();
+  $query = $db->prepare("UPDATE response SET response = :response WHERE id_response = :id_response");
+  $result = $query->execute([
+      "id_response" => $post["id_good_response"],
+      "response" => $post["response"]
+  ]);
+  return $result;
+  $query->closeCursor();
 }
 
 //Fonction pour supprimer une question en base de données

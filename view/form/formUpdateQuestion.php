@@ -1,18 +1,23 @@
-<!--the input let appear in place older placeholder to the question to change   -->
+
 <div class="container col-6">
 <!-- form action a remplir quand toutes les pages seront crées-->
     <h2>Modifier ma question</h2>
-    <form action="">
+    <form method="post">
         <!-- Input ou la prof inscrit la question qu'elle va poser lors du quizz -->
+        <input type="hidden" name="id_question" <?php echo "value='" . $question["id_question"] . "'"; ?>>
+        <input type="hidden" name="id_bad_response1" <?php echo "value='" . $responsesFalse["0"]["id_response"] . "'"; ?>>
+        <input type="hidden" name="id_bad_response2"<?php echo "value='" . $responsesFalse["1"]["id_response"] . "'"; ?>>
+        <input type="hidden" name="id_good_response" <?php echo "value='" . $responseTrue["0"]["id_response"] . "'"; ?>>
         <div class="form-group">
             <label for="question">Question:</label>
-            <input type="text" class="form-control" id="question" placeholder="Question" <?php echo "value='" . $question["question"] . "'"; ?>>
+            <input type="text" class="form-control" id="question" name="question" placeholder="Question" <?php echo "value='" . $question["question"] . "'"; ?>>
         </div>
 
         <!-- Input ou la prof inscrit la bonne réponse -->
         <div class="form-group">
             <label for="good_answer">Bonne réponse:</label>
-            <input type="text" class="form-control" id="good_answer" name="good_response" placeholder="Bonne réponse" <?php echo "value='" . $responseTrue["0"]["response"] . "'"; ?>>
+            <input type="text" class="form-control" id="good_response" name="good_response" placeholder="Bonne réponse" <?php echo "value='" . $responseTrue["0"]["response"] . "'"; ?>>
+
         </div>
 
         <!-- Input ou la prof inscrit les mauvaises réponses -->
@@ -22,6 +27,6 @@
             <input type="text" class="form-control" id="bad_response2" name="bad_response2" placeholder="Mauvaise réponse 2" <?php echo "value='" . $responsesFalse["1"]["response"] . "'"; ?>>
         </div>
         <!-- Bouton pour ajouter la question -->
-        <button type="button" class="btn btn-success">Modifier la question</button>
+        <button type="submit" class="btn btn-success">Modifier la question</button>
     </form>
 </div>
