@@ -109,10 +109,9 @@ function progress(){
 }
 
 function singleSecretary(){
-  //Stock ID
-   $id_session = $_GET['id'];
-   //Compare session user_id by user_id and display information of user
-   $user = getUserbySessionID($id_session);
+   $user_id = $_GET['id'];
+  // stock information's user by id session
+   $user = getUserbySessionID($user_id);
 
   require 'view/singleSecretaryView.php';
 }
