@@ -87,11 +87,11 @@ function addStudent(){
         // and we add session to the db
         if(addSession($_POST, $user_id, $code)){
         // if addsession is true : we header locate to sessionList.php with success message
-            redirectTo('Secretary/results');
+            redirectTo('secretary/results');
         }
         else{
           // if addsession is false : we header locate to createSessionStudent.php
-            redirectTo('Secretary/addStudent');
+            redirectTo('secretary/addStudent');
         }
       }
   require 'view/createSessionStudentView.php';
@@ -101,9 +101,28 @@ function results(){
   require 'view/admittedListView.php';
 }
 
+
+
+/////////////////////////////////////////////////////////////
+
 function progress(){
   $userSessions = getUserAndSession();
+  $sessionNoActive = getSessionNoActive();
+  $sessionActive = getSessionActive();
 
+  if (isset($sessionNoActive)) {
+  $status = "non-actif";
+
+  }
+
+  else
+  {
+    isset($sessionActive);
+  $status = "En Cours";
+}
+
+
+  var_dump($sessionActive);
   require 'view/sessionListView.php';
 }
 
@@ -119,11 +138,11 @@ function eraser(){
     if ($deleteTabUser) {
     deleteTabSession(intval($_GET["id"]));
     }
-      redirectTo("Secretary/progress");
+      redirectTo("secretary/progress");
 
       exit;
     }
-    redirectTo("Secretary/progress,error");
+    redirectTo("secretary/progress");
 }
 ////////////////////////////////////////////////////////////
 

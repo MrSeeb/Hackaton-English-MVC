@@ -13,87 +13,80 @@
 // "status" => "role"
 //]
 function getRoutes() {
-  return [
+ return [
 
-    "" => [
-      "user",
-      "loginStudent"
-    ],
-    "adminConnection" => [
-      "user",
-      "loginAdmin"
-    ],
+   "" => [
+     "user",
+     "loginStudent"
+   ],
+   "adminConnection" => [
+     "user",
+     "loginAdmin"
+   ],
 
 
-    "login" => [
-      "admin",
-      "loginUser"
-    ],
-    //=============PART TEACHER============//
-    "teacher" => [
-      "user",
-      "homeTeacher"
-    ],
-    "teacher/AdmintedList" => [
-      "session",
-      "AdmittedList"
-    ],
-    "teacher/questionList" => [
-      "question",
-      "questionList"
-    ],
-    "teacher/addquestion" => [
-      "question",
-      "addQuestion"
-    ],
-    //=============PART SECRETARY=============//
-    "secretary" => [
-      "user",
-      "homeSecretary"
-    ],
-    "secretary/addstudent" => [
-      "user",
-      "addStudent"
-    ],
-    "secretary/results" => [
-      "user",
-      "results"
-    ],
-    "secretary/progress" => [
-      "user",
-      "progress"
-    ],
-    "testStart"=> [
-    "session",
-    "testStart" ,
-    // ["id" => ["integer"]],
-    ],
-    "test" => [
-      "session",
-      "test",
-      // ["id" => ["integer"]],
-    ],
-    "testEnd" => [
-      "session",
-      "testEnd"
-    ],
-    "deconect" => [
-      "user",
-      "logoutUser"
-      // ["id" => ["integer"]]
-    ],
-
-    "deleteUser" => [
-      "user",
-      "eraser",
-        ["id" => ["integer"]],
-    ],
-    "single" => [
-      "user",
-      "showSingle"
-        // ["id" => ["integer"]],
-    ]
-  ];
+   "login" => [
+     "admin",
+     "loginUser"
+   ],
+   //=============PART TEACHER============//
+   "teacher" => [
+     "user",
+     "homeTeacher"
+   ],
+   "teacher/admittedList" => [
+     "session",
+     "admittedList"
+   ],
+   "teacher/questionList" => [
+     "question",
+     "questionList"
+   ],
+   "teacher/addQuestion" => [
+     "question",
+     "addQuestion"
+   ],
+   //=============PART SECRETARY=============//
+   "secretary" => [
+     "user",
+     "homeSecretary"
+   ],
+   "secretary/addStudent" => [
+     "user",
+     "addStudent"
+   ],
+   "secretary/results" => [
+     "user",
+     "results"
+   ],
+   "secretary/progress" => [
+     "user",
+     "progress"
+   ],
+   "testStart"=> [
+   "session",
+   "testStart" ,
+   // ["id" => ["integer"]],
+   ],
+   "test" => [
+     "session",
+     "test",
+     // ["id" => ["integer"]],
+   ],
+   "testEnd" => [
+     "session",
+     "testEnd"
+   ],
+   "deconect" => [
+     "user",
+     "logoutUser"
+     // ["id" => ["integer"]]
+   ],
+   "deleteUser" => [
+     "user",
+     "eraser",
+       ["id" => ["integer"]],
+   ]
+ ];
 }
-
- ?>
+?>
