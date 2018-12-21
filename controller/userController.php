@@ -75,7 +75,6 @@ function logoutUser()
   else {
     redirectTo("");
   }
-  var_dump(session_start());
 }
 //////////////////////////////////////////////////////////
 function addStudent(){

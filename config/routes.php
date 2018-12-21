@@ -39,7 +39,7 @@ function getRoutes() {
       "session",
       "admittedList"
     ],
-    "Teacher/questionList" => [
+    "teacher/questionList" => [
       "question",
       "questionList"
     ],
@@ -53,6 +53,12 @@ function getRoutes() {
       ["id" => ["integer"],
     ],
     ],
+    "teacher/deleteQuestion" => [
+      "question",
+      "deleteOneQuestion",
+      ["id" => ["integer"],
+    ],
+  ],
     //=============PART SECRETARY=============//
     "secretary" => [
       "user",

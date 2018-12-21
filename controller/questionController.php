@@ -18,7 +18,7 @@ function questionList(){
         addTrueResponse($_POST, $lastIdQuestion);
         addBadResponse($_POST["badResponse1"], $lastIdQuestion);
         addBadResponse($_POST["badResponse2"], $lastIdQuestion);
-        redirectTo("Teacher/questionList");
+        redirectTo("teacher/questionList");
      }
    }
    require "view/addQuestionView.php";
@@ -32,10 +32,25 @@ function updateOneQuestion(){
         updateResponse($_POST["goodResponse"], $responses[0]["id_response"]);
         updateResponse($_POST["badResponse1"], $responses[1]["id_response"]);
         updateResponse($_POST["badResponse2"], $responses[2]["id_response"]);
-        redirectTO("Teacher/questionList");
+        redirectTo("teacher/questionList");
     }
   }
   require "view/updateQuestionView.php";
 }
 
- ?>
+
+function deleteOneQuestion()
+{
+  if(isset($_GET["id"]))
+  {
+    $_GET["id"] = intval($_GET["id"]);
+    $deleteQuestion = deleteQuestion($_GET["id"]);
+    if($deleteQuestion)
+    {
+      deleteResponse($_GET["id"]);
+      redirectTo("teacher/questionList");
+      exit;
+    }
+  }
+}
+?>
