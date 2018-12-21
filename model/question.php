@@ -140,11 +140,20 @@ function updateResponse($post,$id)
 }
 
 //Fonction pour supprimer une question en base de données
-function deleteQuestion($id)
+function deleteQuestion($idq)
 {
     $db = connectToDataBAse();
-    $query = $db->prepare("DELETE FROM question WHERE id = ?");
-    $result = $query->execute([$id]);
+    $query = $db->prepare("DELETE FROM question WHERE id_question = ?");
+    $result = $query->execute([$idq]);
+    return $result;
+    $query->closeCursor();
+}
+
+function deleteResponse($idr)
+{
+    $db = connectToDataBAse();
+    $query = $db->prepare("DELETE FROM response WHERE question_id = ?");
+    $result = $query->execute([$idr]);
     return $result;
     $query->closeCursor();
 }

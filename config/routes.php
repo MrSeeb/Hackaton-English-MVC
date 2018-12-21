@@ -30,38 +30,45 @@ function getRoutes() {
      "loginUser"
    ],
 
-   //=============PART TEACHER============//
-   "teacher" => [
-     "user",
-     "homeTeacher"
-   ],
-   "teacher/admittedList" => [
-     "session",
-     "admittedList"
-   ],
-   "Teacher/questionList" => [
-     "question",
-     "questionList"
-   ],
-   "teacher/addQuestion" => [
-     "question",
-     "addOneQuestion",
-   ],
-   "teacher/updateQuestion" => [
-     "question",
-     "updateOneQuestion",
-     ["id" => ["integer"],
-   ],
-   ],
-   //=============PART SECRETARY=============//
-   "secretary" => [
-     "user",
-     "homeSecretary"
-   ],
-   "secretary/addStudent" => [
-     "user",
-     "addStudent"
-   ],
+    //=============PART TEACHER============//
+    "teacher" => [
+      "user",
+      "homeTeacher"
+    ],
+    "teacher/admittedList" => [
+      "session",
+      "admittedList"
+    ],
+    "teacher/questionList" => [
+      "question",
+      "questionList"
+    ],
+    "teacher/addQuestion" => [
+      "question",
+      "addOneQuestion",
+    ],
+    "teacher/updateQuestion" => [
+      "question",
+      "updateOneQuestion",
+      ["id" => ["integer"],
+    ],
+    ],
+    "teacher/deleteQuestion" => [
+      "question",
+      "deleteOneQuestion",
+      ["id" => ["integer"],
+    ],
+  ],
+    //=============PART SECRETARY=============//
+    "secretary" => [
+      "user",
+      "homeSecretary"
+    ],
+    "secretary/addStudent" => [
+      "user",
+      "addStudent"
+    ],
+
 
    "secretary/sessionList" => [
      "session",

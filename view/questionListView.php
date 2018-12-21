@@ -13,8 +13,9 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Question 1 : <?php echo $question["question"]; ?></th>
+            <th scope="col">Question: <?php echo $question["question"]; ?></th>
             <th scope="col"><a <?php setHref("teacher/updateQuestion", ["id" => $question['id_question']]) ?>> modifier</a> </th>
+            <th scope="col"><a <?php setHref("teacher/deleteQuestion", ["id" => $question['id_question']]) ?>> supprimer</a> </th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +26,7 @@
             <th scope="col">@</th>
             <td scope="col"><?php echo $response["response"];?></td>
             <td scope="col"><?php echo  ($response["is_correct"])? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>"; ?> </td>
+            <td scope="col"></td>
           </tr>
             <?php } ?>
         </tbody>
