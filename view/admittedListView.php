@@ -18,7 +18,7 @@ include "template/header.php";
           <td><?php echo $value['first_name']; echo " " .$value['last_name']; ?></td>
           <td><?php echo $value['result']; ?></td>
           <td><?php echo $value['level'];?></td>
-          <td><a class="btn btn-primary" <?php setHref('secretary/single', ['id' => $sessions[0]['user_id']]);?> role="button">More Infos</a></td>
+          <td><a class="btn btn-primary" <?php setHref('secretary/single', ['id' => $value['id_session']]);?> role="button">More Infos</a></td>
         </tr>
       <?php } ?>
     </tbody>

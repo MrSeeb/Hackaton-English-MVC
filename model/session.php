@@ -30,7 +30,7 @@ function getJoinUserSession(){
 //Function get information of user by id_session
 function getUserbySessionID($id){
   $db = connectToDataBAse();
-  $query = $db->prepare("SELECT s.id_session, s.created_date, s.start_qcm_date, u.id_user, u.first_name, u.last_name FROM session AS s INNER JOIN user AS u WHERE $id = u.id_user");
+  $query = $db->prepare("SELECT s.id_session, s.created_date, s.start_qcm_date, u.id_user, u.first_name, u.last_name FROM session AS s INNER JOIN user AS u ON s.user_id = u.id_user WHERE s.id_session = ?");
   $query->execute([$id]);
   $result = $query->fetch(PDO::FETCH_ASSOC);
 
@@ -42,14 +42,10 @@ function getUserbySessionID($id){
 function addSession($session, $user_id, $code)
 {
   $db = connectToDataBAse();
-  $query = $db->prepare("INSERT INTO session (user_id, code, created_date, start_qcm_date, end_qcm_date, result, level) VALUES(:user_id, :code, CURDATE(), :start_qcm_date, :end_qcm_date, :result, :level)");
+  $query = $db->prepare("INSERT INTO session (user_id, code, created_date) VALUES(:user_id, :code, CURDATE())");
   $result = $query->execute([
     "user_id" => $user_id,
     "code" => $code,
-    "start_qcm_date" => $session["start_qcm_date"],
-    "end_qcm_date" => $session["end_qcm_date"],
-    "result" => $session["result"],
-    "level" => $session["level"]
   ]);
   return $result;
   $query->closeCursor();

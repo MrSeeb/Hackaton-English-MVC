@@ -4,7 +4,7 @@ function getGlobalConfig() {
   return $config = [
     "protocol" => "",
     "host" => "localhost/Lab/Hackaton-English-MVC/",
-    "status" => ["user", "Secretary", "Teacher"],
+    "status" => ["Secretary", "user", "Teacher"],
     "defaultRoute" => ""
   ];
 }
