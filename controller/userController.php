@@ -102,13 +102,16 @@ function results(){
 }
 
 function progress(){
+  //Stock user and Session user
   $userSessions = getUserAndSession();
 
   require 'view/sessionListView.php';
 }
 
 function singleSecretary(){
+  //Stock ID
    $id_session = $_GET['id'];
+   //Compare session user_id by user_id and display information of user
    $user = getUserbySessionID($id_session);
 
   require 'view/singleSecretaryView.php';
