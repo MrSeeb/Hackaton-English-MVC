@@ -2,8 +2,7 @@
 session_start();
 // require "deleteSessionTreatment.php";
 
-include "view/template/header.php";
-?>
+include "view/template/header.php";?>
 <div class="container-fluid">
       <table class="table">
         <thead class="thead-dark">
@@ -24,8 +23,9 @@ include "view/template/header.php";
           <th scope="row"> <?php echo $userSession["last_name"] ?> </th>
           <td scope="row"> <?php echo $userSession["first_name"] ;?> </td>
           <td scope="row">  <?php echo $userSession["code"] ?> </td>
-          <td scope="row"><?php echo $userSession["created_date"] ;  ?> </td>
-          <td scope="row"><a <?php  setHref("teacher/updateQuestion",["id" => $userSession['id_user']]); ?> class="btn btn-danger btn">Supprimer</a></td>
+
+          <td scope="row"><?php echo $userSession["status"] ;  ?> </td>
+          <td scope="row"><a <?php  setHref("deleteUser",["id" => $userSession['id_user']]); ?> class="btn btn-danger btn">Supprimer</a></td>
 
         </tr>
       </thead>
@@ -36,3 +36,5 @@ include "view/template/header.php";
     </tbody>
     </table>
 </div>
+
+<?php include "view/template/footer.php"; ?>

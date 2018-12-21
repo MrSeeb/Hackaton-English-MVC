@@ -13,20 +13,22 @@
 // "status" => "role"
 //]
 function getRoutes() {
-  return [
+ return [
 
-    "" => [
-      "user",
-      "loginStudent"
-    ],
-    "adminConnection" => [
-      "user",
-      "loginAdmin"
-    ],
-    "login" => [
-      "admin",
-      "loginUser"
-    ],
+   "" => [
+     "user",
+     "loginStudent"
+   ],
+   "adminConnection" => [
+     "user",
+     "loginAdmin"
+   ],
+
+
+   "login" => [
+     "admin",
+     "loginUser"
+   ],
 
     //=============PART TEACHER============//
     "teacher" => [
@@ -37,7 +39,7 @@ function getRoutes() {
       "session",
       "admittedList"
     ],
-    "Teacher/questionList" => [
+    "teacher/questionList" => [
       "question",
       "questionList"
     ],
@@ -51,7 +53,12 @@ function getRoutes() {
       ["id" => ["integer"],
     ],
     ],
-
+    "teacher/deleteQuestion" => [
+      "question",
+      "deleteOneQuestion",
+      ["id" => ["integer"],
+    ],
+  ],
     //=============PART SECRETARY=============//
     "secretary" => [
       "user",
@@ -62,50 +69,46 @@ function getRoutes() {
       "addStudent"
     ],
 
-    "secretary/sessionList" => [
-      "session",
-      "sessionList"
-    ],
-    "secretary/results" => [
-      "user",
-      "results"
-    ],
-    "secretary/progress" => [
-      "user",
-      "progress"
 
-    ],
-    "secretary/single" => [
-      "user",
-      "singleSecretary",
-      ["id" => ["integer"]]
-    ],
-    //=============PART TEST STUDENT=============//
-    "teststart"=> [
-    "session",
-    "testStart" ,
-    // ["id" => ["integer"]],
-    ],
-    "test" => [
-      "session",
-      "test",
-      // ["id" => ["integer"]],
-    ],
-    "testEnd" => [
-      "session",
-      "testEnd"
-    ],
-    "deconect" => [
-      "user",
-      "logoutUser"
-      // ["id" => ["integer"]]
-    ],
+   "secretary/sessionList" => [
+     "session",
+     "sessionList"
+   ],
+   "secretary/results" => [
+     "user",
+     "results"
+   ],
+   "secretary/progress" => [
+     "user",
+     "progress"
+   ],
+// ====================PART SESSION ==================
 
-    "deleteuser" => [
-      "user",
-      "eraser",
-        ["id" => ["integer"]],
-    ]
-  ];
+   "testStart"=> [
+   "session",
+   "testStart" ,
+   // ["id" => ["integer"]],
+   ],
+   "test" => [
+     "session",
+     "test",
+     // ["id" => ["integer"]],
+   ],
+   "testEnd" => [
+     "session",
+     "testEnd"
+   ],
+   "deconect" => [
+     "user",
+     "logoutUser"
+     // ["id" => ["integer"]]
+   ],
+
+   "deleteUser" => [
+     "user",
+     "eraser",
+       ["id" => ["integer"]],
+   ]
+ ];
 }
 ?>
