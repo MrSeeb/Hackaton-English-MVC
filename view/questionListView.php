@@ -12,7 +12,6 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Question: <?php echo $question["question"]; ?></th>
             <th scope="col"><a <?php setHref("teacher/updateQuestion", ["id" => $question['id_question']]) ?>> modifier</a> </th>
             <th scope="col"><a <?php setHref("teacher/deleteQuestion", ["id" => $question['id_question']]) ?>> supprimer</a> </th>
@@ -23,7 +22,6 @@
           $responses = getResponsesQuestion($question["id_question"]);
           foreach ($responses as $key => $response){?>
           <tr>
-            <th scope="col">@</th>
             <td scope="col"><?php echo $response["response"];?></td>
             <td scope="col"><?php echo  ($response["is_correct"])? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>"; ?> </td>
             <td scope="col"></td>
