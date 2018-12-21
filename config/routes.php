@@ -51,12 +51,6 @@ function getRoutes() {
       "question",
       "updateOneQuestion",
       ["id" => ["integer"],
-      //  "id_good_response" => ["integer"],
-      //  "id_bad_response1" => ["integer"],
-      //  "id_bad_response2" => ["integer"],
-      // "good_response" => ["string"],
-      // "bad_response1" => ["string"],
-      // "bad_response2" => ["string"]
     ],
     ],
     //=============PART SECRETARY=============//
