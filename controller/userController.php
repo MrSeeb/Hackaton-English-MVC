@@ -112,6 +112,13 @@ function singleSecretary(){
    $user_id = $_GET['id'];
   // stock information's user by id session
    $user = getUserbySessionID($user_id);
+  //Calcul time of teste\\
+
+  //Stock Start and End Time
+  $start_test = $user['start_qcm_date'];
+  $end_test = $user['end_qcm_date'];
+  //Convert Date_Time on Integer and Calcul the difference
+  $time_test = abs(strtotime($start_test) - strtotime($end_test));
 
   require 'view/singleSecretaryView.php';
 }
