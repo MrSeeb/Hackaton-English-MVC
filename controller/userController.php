@@ -121,7 +121,6 @@ foreach ($userSessions as $key => $session) {
   else {
       $userSessions[$key]["status"] = "Non-actif";
   }
-  echo "<p>" . var_dump($session) . "</p>";
 }
 
 function singleSecretary(){
