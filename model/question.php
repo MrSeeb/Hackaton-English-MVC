@@ -53,28 +53,27 @@ function getResponsesQuestion($id)
   $query->closeCursor();
 }
 
-// function to get the false's responses
-function getResponsesQuestionFalse($id)
-{
-  $db = connectToDataBAse();
-  $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? AND r.is_correct = 0");
-  $query->execute([$id]);
-  $questions = $query->fetchall(PDO::FETCH_ASSOC);
-  return $questions;
-  $query->closeCursor();
-}
+// // function to get the false's responses
+// function getResponsesQuestionFalse($id)
+// {
+//   $db = connectToDataBAse();
+//   $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? AND r.is_correct = 0");
+//   $query->execute([$id]);
+//   $questions = $query->fetchall(PDO::FETCH_ASSOC);
+//   return $questions;
+//   $query->closeCursor();
+// }
 
-// function to get the true response
-function getResponsesQuestionTrue($id)
-{
-  $db = connectToDataBAse();
-  $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? AND r.is_correct = 1");
-  $query->execute([$id]);
-  $questions = $query->fetchall(PDO::FETCH_ASSOC);
-  return $questions;
-  $query->closeCursor();
-}
-
+// // function to get the true response
+// function getResponsesQuestionTrue($id)
+// {
+//   $db = connectToDataBAse();
+//   $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? AND r.is_correct = 1");
+//   $query->execute([$id]);
+//   $questions = $query->fetch(PDO::FETCH_ASSOC);
+//   return $questions;
+//   $query->closeCursor();
+// }
 
 //Add response to the datatbase
 function addresponse($question_id)
@@ -99,13 +98,40 @@ function updateQuestion($post)
     return $result;
     $query->closeCursor();
 }
-function updateResponse($post)
+
+// update the good response
+function updateTrueResponse($post,$id)
 {
   $db = connectToDataBAse();
   $query = $db->prepare("UPDATE response SET response = :response WHERE id_response = :id_response");
   $result = $query->execute([
-      "id_response" => $post["id_good_response"],
-      "response" => $post["response"]
+      "id_response" => $id,
+      "response" => $post["goodResponse"]
+  ]);
+  return $result;
+  $query->closeCursor();
+}
+
+// update the bad response
+function updateBadResponse1($post,$id)
+{
+  $db = connectToDataBAse();
+  $query = $db->prepare("UPDATE response SET response = :response WHERE id_response = :id_response");
+  $result = $query->execute([
+      "id_response" => $id,
+      "response" => $post["badResponse1"]
+  ]);
+  return $result;
+  $query->closeCursor();
+}
+
+function updateBadResponse2($post,$id)
+{
+  $db = connectToDataBAse();
+  $query = $db->prepare("UPDATE response SET response = :response WHERE id_response = :id_response");
+  $result = $query->execute([
+      "id_response" => $id,
+      "response" => $post["badResponse2"]
   ]);
   return $result;
   $query->closeCursor();

@@ -12,18 +12,14 @@ function addQuestion(){
 
 function updateOneQuestion(){
   $question = getQuestion($_GET["id"]);
-  $responsesFalse = getResponsesQuestionFalse($_GET["id"]);
-  $responseTrue = getResponsesQuestionTrue($_GET["id"]);
+  $responses = getResponsesQuestion($_GET["id"]);
   if(!empty($_POST)){
-
     if(updateQuestion($_POST)){
-        updateResponse($_POST);
-        // redirectTo("Teacher/questionList");
+        updateTrueResponse($_POST, $responses[0]["id_response"] );
+        updateBadResponse1($_POST, $responses[1]["id_response"] );
+        updateBadResponse2($_POST, $responses[2]["id_response"] );
     }
-
   }
-   var_dump($_POST);
-  // var_dump($question);
   require "view/updateQuestionView.php";
 }
 

@@ -5,9 +5,6 @@
     <form method="post">
         <!-- Input ou la prof inscrit la question qu'elle va poser lors du quizz -->
         <input type="hidden" name="id_question" <?php echo "value='" . $question["id_question"] . "'"; ?>>
-        <input type="hidden" name="id_bad_response1" <?php echo "value='" . $responsesFalse["0"]["id_response"] . "'"; ?>>
-        <input type="hidden" name="id_bad_response2"<?php echo "value='" . $responsesFalse["1"]["id_response"] . "'"; ?>>
-        <input type="hidden" name="id_good_response" <?php echo "value='" . $responseTrue["0"]["id_response"] . "'"; ?>>
         <div class="form-group">
             <label for="question">Question:</label>
             <input type="text" class="form-control" id="question" name="question" placeholder="Question" <?php echo "value='" . $question["question"] . "'"; ?>>
@@ -16,15 +13,15 @@
         <!-- Input ou la prof inscrit la bonne réponse -->
         <div class="form-group">
             <label for="good_answer">Bonne réponse:</label>
-            <input type="text" class="form-control" id="good_response" name="good_response" placeholder="Bonne réponse" <?php echo "value='" . $responseTrue["0"]["response"] . "'"; ?>>
+            <input type="text" class="form-control" id="good_response" name="goodResponse" placeholder="Bonne réponse" <?php echo "value='" . $responses["0"]["response"] . "'"; ?>>
 
         </div>
 
         <!-- Input ou la prof inscrit les mauvaises réponses -->
         <div class="form-group">
             <label for="bad_answer">Mauvaises réponses:</label>
-            <input type="text" class="form-control mb-3" id="bad_response1" name="bad_response1" placeholder="Mauvaise réponse 1" <?php echo "value='" . $responsesFalse["0"]["response"] . "'"; ?>>
-            <input type="text" class="form-control" id="bad_response2" name="bad_response2" placeholder="Mauvaise réponse 2" <?php echo "value='" . $responsesFalse["1"]["response"] . "'"; ?>>
+            <input type="text" class="form-control mb-3" id="bad_response1" name="badResponse1" placeholder="Mauvaise réponse 1" <?php echo "value='" . $responses["1"]["response"] . "'"; ?>>
+            <input type="text" class="form-control" id="bad_response2" name="badResponse2" placeholder="Mauvaise réponse 2" <?php echo "value='" . $responses["2"]["response"] . "'"; ?>>
         </div>
         <!-- Bouton pour ajouter la question -->
         <button type="submit" class="btn btn-success">Modifier la question</button>
