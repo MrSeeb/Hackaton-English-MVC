@@ -18,7 +18,7 @@ Here the "?" will be replace by the information  -->
        <p>Début du test à : <?php echo $user['start_qcm_date']; ?></p>
      </div>
      <div class="col-12  text-center border border-dark mt-4">
-       <p>Temps du teste : <?php echo date('H:i', $time_test); ?></p>
+       <p>Temps du teste : <?php echo gmdate('H:i:s', $time); ?></p>
      </div>
    </div>
  </div>
