@@ -13,99 +13,95 @@
 // "status" => "role"
 //]
 function getRoutes() {
-  return [
+ return [
 
-    "" => [
-      "user",
-      "loginStudent"
-    ],
-    "adminConnection" => [
-      "user",
-      "loginAdmin"
-    ],
-    "login" => [
-      "admin",
-      "loginUser"
-    ],
+   "" => [
+     "user",
+     "loginStudent"
+   ],
+   "adminConnection" => [
+     "user",
+     "loginAdmin"
+   ],
 
-    //=============PART TEACHER============//
-    "teacher" => [
-      "user",
-      "homeTeacher"
-    ],
-    "teacher/admittedList" => [
-      "session",
-      "admittedList"
-    ],
-    "Teacher/questionList" => [
-      "question",
-      "questionList"
-    ],
-    "teacher/addQuestion" => [
-      "question",
-      "addOneQuestion",
-    ],
-    "teacher/updateQuestion" => [
-      "question",
-      "updateOneQuestion",
-      ["id" => ["integer"],
-    ],
-    ],
 
-    //=============PART SECRETARY=============//
-    "secretary" => [
-      "user",
-      "homeSecretary"
-    ],
-    "secretary/addStudent" => [
-      "user",
-      "addStudent"
-    ],
+   "login" => [
+     "admin",
+     "loginUser"
+   ],
 
-    "secretary/sessionList" => [
-      "session",
-      "sessionList"
-    ],
-    "secretary/results" => [
-      "user",
-      "results"
-    ],
-    "secretary/progress" => [
-      "user",
-      "progress"
+   //=============PART TEACHER============//
+   "teacher" => [
+     "user",
+     "homeTeacher"
+   ],
+   "teacher/admittedList" => [
+     "session",
+     "admittedList"
+   ],
+   "Teacher/questionList" => [
+     "question",
+     "questionList"
+   ],
+   "teacher/addQuestion" => [
+     "question",
+     "addOneQuestion",
+   ],
+   "teacher/updateQuestion" => [
+     "question",
+     "updateOneQuestion",
+     ["id" => ["integer"],
+   ],
+   ],
+   //=============PART SECRETARY=============//
+   "secretary" => [
+     "user",
+     "homeSecretary"
+   ],
+   "secretary/addStudent" => [
+     "user",
+     "addStudent"
+   ],
 
-    ],
-    "secretary/single" => [
-      "user",
-      "singleSecretary",
-      ["id" => ["integer"]]
-    ],
-    //=============PART TEST STUDENT=============//
-    "teststart"=> [
-    "session",
-    "testStart" ,
-    // ["id" => ["integer"]],
-    ],
-    "test" => [
-      "session",
-      "test",
-      // ["id" => ["integer"]],
-    ],
-    "testEnd" => [
-      "session",
-      "testEnd"
-    ],
-    "deconect" => [
-      "user",
-      "logoutUser"
-      // ["id" => ["integer"]]
-    ],
+   "secretary/sessionList" => [
+     "session",
+     "sessionList"
+   ],
+   "secretary/results" => [
+     "user",
+     "results"
+   ],
+   "secretary/progress" => [
+     "user",
+     "progress"
+   ],
+// ====================PART SESSION ==================
 
-    "deleteuser" => [
-      "user",
-      "eraser",
-        ["id" => ["integer"]],
-    ]
-  ];
+   "testStart"=> [
+   "session",
+   "testStart" ,
+   // ["id" => ["integer"]],
+   ],
+   "test" => [
+     "session",
+     "test",
+     // ["id" => ["integer"]],
+   ],
+   "testEnd" => [
+     "session",
+     "testEnd"
+   ],
+   "deconect" => [
+     "user",
+     "logoutUser"
+     // ["id" => ["integer"]]
+   ],
+
+   "deleteUser" => [
+     "user",
+     "eraser",
+       ["id" => ["integer"]],
+   ]
+ ];
 }
 ?>

@@ -101,11 +101,28 @@ function results(){
   require 'view/admittedListView.php';
 }
 
+
+
+/////////////////////////////////////////////////////////////
+
 function progress(){
   //Stock user and Session user
   $userSessions = getUserAndSession();
 
-  require 'view/sessionListView.php';
+
+foreach ($userSessions as $key => $session) {
+
+
+  if( $session["start_qcm_date"] && !$session["end_qcm_date"]){
+    $userSessions[$key]["status"] = "En Cours";
+  }
+  elseif($session["start_qcm_date"] && $session["end_qcm_date"]){
+      $userSessions[$key]["status"] = "Terminé";
+  }
+  else {
+      $userSessions[$key]["status"] = "Non-actif";
+  }
+  echo "<p>" . var_dump($session) . "</p>";
 }
 
 function singleSecretary(){
@@ -115,6 +132,11 @@ function singleSecretary(){
 
   require 'view/singleSecretaryView.php';
 }
+
+
+
+  require 'view/sessionListView.php';
+  }
 
 
 
@@ -135,4 +157,11 @@ function eraser(){
     redirectTo("secretary/progress");
 }
 ////////////////////////////////////////////////////////////
+
+
+
+function showSingle(){
+
+    require 'view/singleView.php';
+}
 ?>

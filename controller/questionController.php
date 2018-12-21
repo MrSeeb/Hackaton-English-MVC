@@ -1,5 +1,4 @@
 <?php
-require "model/question.php";
 
 function questionList(){
   $questions = getQuestions();
