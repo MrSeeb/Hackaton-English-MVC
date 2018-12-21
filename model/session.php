@@ -30,7 +30,7 @@ function getJoinUserSession(){
 //Function get information of user by id_session
 function getUserbySessionID($id){
   $db = connectToDataBAse();
-  $query = $db->prepare("SELECT s.id_session, s.created_date, s.start_qcm_date, u.id_user, u.first_name, u.last_name FROM session AS s INNER JOIN user AS u ON s.user_id = u.id_user WHERE s.id_session = ?");
+  $query = $db->prepare("SELECT s.id_session, s.created_date, s.start_qcm_date, s.end_qcm_date, u.id_user, u.first_name, u.last_name FROM session AS s INNER JOIN user AS u ON s.user_id = u.id_user WHERE s.id_session = ?");
   $query->execute([$id]);
   $result = $query->fetch(PDO::FETCH_ASSOC);
 
