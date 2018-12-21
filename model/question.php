@@ -53,27 +53,51 @@ function getResponsesQuestion($id)
   $query->closeCursor();
 }
 
-// // function to get the false's responses
-// function getResponsesQuestionFalse($id)
-// {
-//   $db = connectToDataBAse();
-//   $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? AND r.is_correct = 0");
-//   $query->execute([$id]);
-//   $questions = $query->fetchall(PDO::FETCH_ASSOC);
-//   return $questions;
-//   $query->closeCursor();
-// }
 
-// // function to get the true response
-// function getResponsesQuestionTrue($id)
-// {
-//   $db = connectToDataBAse();
-//   $query = $db->prepare("SELECT * FROM question AS q INNER JOIN response AS r ON q.id_question = r.question_id WHERE r.question_id = ? AND r.is_correct = 1");
-//   $query->execute([$id]);
-//   $questions = $query->fetch(PDO::FETCH_ASSOC);
-//   return $questions;
-//   $query->closeCursor();
-// }
+
+function addQuestion($post)
+{
+    $db = connectToDataBAse();
+    $query = $db->prepare("INSERT INTO question (question) VALUES(:question)");
+    $result = $query->execute([
+        "question" => $post["question"]
+    ]);
+    return $result;
+    $query->closeCursor();
+}
+
+function addTrueResponse($post,$question_id)
+{
+     $db = connectToDataBAse();
+     $query = $db->prepare("INSERT INTO response (response, is_correct, question_id) VALUES(:response, :is_correct, :question_id)");
+     $result = $query->execute([
+        "response" => $post["goodResponse"],
+        "is_correct" => 1,
+        "question_id" => intval($question_id)
+      ]);
+      return $result;
+      $query->closeCursor();
+}
+
+function addBadResponse($post,$question_id)
+{
+     $db = connectToDataBAse();
+     $query = $db->prepare("INSERT INTO response (response, is_correct, question_id) VALUES(:response, :is_correct, :question_id)");
+     $result = $query->execute([
+        "response" => $post,
+        "is_correct" => 0,
+        "question_id" => intval($question_id)
+      ]);
+      return $result;
+      $query->closeCursor();
+}
+
+
+
+
+
+
+
 
 //Add response to the datatbase
 function addresponse($question_id)
@@ -84,6 +108,8 @@ function addresponse($question_id)
         "response" => $_POST["response"],
         "question_id" => $question_id
       ]);
+      return $result;
+      $query->closeCursor();
 }
 
 //Fonction pour modifier les valeurs d'une question en base de données
@@ -99,39 +125,15 @@ function updateQuestion($post)
     $query->closeCursor();
 }
 
-// update the good response
-function updateTrueResponse($post,$id)
-{
-  $db = connectToDataBAse();
-  $query = $db->prepare("UPDATE response SET response = :response WHERE id_response = :id_response");
-  $result = $query->execute([
-      "id_response" => $id,
-      "response" => $post["goodResponse"]
-  ]);
-  return $result;
-  $query->closeCursor();
-}
 
-// update the bad response
-function updateBadResponse1($post,$id)
+// update response
+function updateResponse($post,$id)
 {
   $db = connectToDataBAse();
   $query = $db->prepare("UPDATE response SET response = :response WHERE id_response = :id_response");
   $result = $query->execute([
       "id_response" => $id,
-      "response" => $post["badResponse1"]
-  ]);
-  return $result;
-  $query->closeCursor();
-}
-
-function updateBadResponse2($post,$id)
-{
-  $db = connectToDataBAse();
-  $query = $db->prepare("UPDATE response SET response = :response WHERE id_response = :id_response");
-  $result = $query->execute([
-      "id_response" => $id,
-      "response" => $post["badResponse2"]
+      "response" => $post
   ]);
   return $result;
   $query->closeCursor();

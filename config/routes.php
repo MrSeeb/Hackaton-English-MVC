@@ -45,7 +45,7 @@ function getRoutes() {
     ],
     "teacher/addQuestion" => [
       "question",
-      "addQuestion"
+      "addOneQuestion",
     ],
     "teacher/updateQuestion" => [
       "question",

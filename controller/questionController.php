@@ -6,18 +6,33 @@ function questionList(){
   require "view/questionListView.php";
 }
 
-function addQuestion(){
-  require "view/addQuestionView.php";
-}
+// function addQuestion(){
+//
+//   require "view/addQuestionView.php";
+// }
+
+ function addOneQuestion(){
+   if(!empty($_POST)){
+     if(addQuestion($_POST)){
+        $lastIdQuestion = getLastQuestionID();
+        addTrueResponse($_POST, $lastIdQuestion);
+        addBadResponse($_POST["badResponse1"], $lastIdQuestion);
+        addBadResponse($_POST["badResponse2"], $lastIdQuestion);
+        redirectTo("Teacher/questionList");
+     }
+   }
+   require "view/addQuestionView.php";
+ }
 
 function updateOneQuestion(){
   $question = getQuestion($_GET["id"]);
   $responses = getResponsesQuestion($_GET["id"]);
   if(!empty($_POST)){
     if(updateQuestion($_POST)){
-        updateTrueResponse($_POST, $responses[0]["id_response"] );
-        updateBadResponse1($_POST, $responses[1]["id_response"] );
-        updateBadResponse2($_POST, $responses[2]["id_response"] );
+        updateResponse($_POST["goodResponse"], $responses[0]["id_response"]);
+        updateResponse($_POST["badResponse1"], $responses[1]["id_response"]);
+        updateResponse($_POST["badResponse2"], $responses[2]["id_response"]);
+        redirectTO("Teacher/questionList");
     }
   }
   require "view/updateQuestionView.php";
