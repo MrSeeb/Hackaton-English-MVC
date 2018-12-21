@@ -1,6 +1,7 @@
 <?php
 function connectToDataBAse() {
-  try {
+  try 
+  {
 
     $db = new PDO('mysql:host=localhost;dbname=Adep_Anglais;charset=utf8', 'phpmyadmin', 'root');
 

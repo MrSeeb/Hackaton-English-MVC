@@ -63,11 +63,10 @@ return $userSession;
 function addUser($user)
 {
   $db = connectToDataBAse();
-  $query = $db->prepare('INSERT INTO user(first_name, last_name, password, mail, phone, status) VALUES(:first_name, :last_name, :password, :mail, :phone, :status)');
+  $query = $db->prepare('INSERT INTO user(first_name, last_name, mail, phone, status) VALUES(:first_name, :last_name, :mail, :phone, :status)');
   $result = $query->execute(array(
       "first_name" => $user["first_name"],
       "last_name" => $user["last_name"],
-      "password" => $user["password"],
       "mail" => $user["mail"],
       "phone" => $user["phone"],
       "status" => "user"));
@@ -99,12 +98,45 @@ function deleteUser($id) {
 // (date will change cause need to calculate for get the stutus of session if is finish or not)
 function getUserAndSession(){
   $db = connectToDataBAse();
-  $userSession = $db->prepare("SELECT u.id_user ,u.first_name, u.last_name , s.code , s.created_date  FROM session AS s INNER JOIN user AS u ON  u.id_user = s.user_id");
+  $userSession = $db->prepare("SELECT u.id_user ,u.first_name, u.last_name , s.code , s.created_date ,  s.start_qcm_date , s.end_qcm_date  FROM session AS s INNER JOIN user AS u ON  u.id_user = s.user_id");
   $userSession->execute([]);
   $result = $userSession->fetchall(PDO::FETCH_ASSOC);
   $userSession->closeCursor();
   return $result;
 }
+
+
+// Test for Simon
+// test for get date .//////////////////////////////////////////////////////////////////////////////////////////////////
+
+function getSessionNoActive(){
+  $db = connectToDataBAse();
+  $sessionNoActive = $db->query("SELECT created_date FROM session");
+  $result = $sessionNoActive->fetchall(PDO::FETCH_ASSOC);
+  $sessionNoActive->closeCursor();
+  return $result;
+}
+/////////////////////////////////////////////////
+
+function getSessionActive(){
+  $db = connectToDataBAse();
+  $sessionActive = $db->query("SELECT start_qcm_date FROM session");
+  $result = $sessionActive->fetchall(PDO::FETCH_ASSOC);
+  $sessionActive->closeCursor();
+  return $result;
+}
+/////////////////////////////////////////////////
+function getSessionFinish(){
+  $db = connectToDataBAse();
+  $sessionFinish = $db->query("SELECT end_qcm_date FROM session");
+  $result = $sessionFinish->fetchall(PDO::FETCH_ASSOC);
+  $sessionFinish->closeCursor();
+  return $result;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 //  Start Double function delete for seesionList/////////////////////////////////////////////////
 // function to delete the user's Session

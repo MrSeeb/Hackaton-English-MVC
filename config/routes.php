@@ -13,22 +13,22 @@
 // "status" => "role"
 //]
 function getRoutes() {
-  return [
+ return [
 
-    "" => [
-      "user",
-      "loginStudent"
-    ],
-    "adminConnection" => [
-      "user",
-      "loginAdmin"
-    ],
+   "" => [
+     "user",
+     "loginStudent"
+   ],
+   "adminConnection" => [
+     "user",
+     "loginAdmin"
+   ],
 
 
-    "login" => [
-      "admin",
-      "loginUser"
-    ],
+   "login" => [
+     "admin",
+     "loginUser"
+   ],
 
     //=============PART TEACHER============//
     "teacher" => [
@@ -69,46 +69,46 @@ function getRoutes() {
       "addStudent"
     ],
 
-    "secretary/sessionList" => [
-      "session",
-      "sessionList"
-    ],
-    "secretary/results" => [
-      "user",
-      "results"
-    ],
-    "secretary/progress" => [
-      "user",
-      "progress"
 
-    ],
+   "secretary/sessionList" => [
+     "session",
+     "sessionList"
+   ],
+   "secretary/results" => [
+     "user",
+     "results"
+   ],
+   "secretary/progress" => [
+     "user",
+     "progress"
+   ],
 // ====================PART SESSION ==================
 
-    "testStart"=> [
-    "session",
-    "testStart" ,
-    // ["id" => ["integer"]],
-    ],
-    "test" => [
-      "session",
-      "test",
-      // ["id" => ["integer"]],
-    ],
-    "testEnd" => [
-      "session",
-      "testEnd"
-    ],
-    "deconect" => [
-      "user",
-      "logoutUser"
-      // ["id" => ["integer"]]
-    ],
+   "testStart"=> [
+   "session",
+   "testStart" ,
+   // ["id" => ["integer"]],
+   ],
+   "test" => [
+     "session",
+     "test",
+     // ["id" => ["integer"]],
+   ],
+   "testEnd" => [
+     "session",
+     "testEnd"
+   ],
+   "deconect" => [
+     "user",
+     "logoutUser"
+     // ["id" => ["integer"]]
+   ],
 
-    "deleteUser" => [
-      "user",
-      "eraser",
-        ["id" => ["integer"]],
-    ]
-  ];
+   "deleteUser" => [
+     "user",
+     "eraser",
+       ["id" => ["integer"]],
+   ]
+ ];
 }
 ?>
