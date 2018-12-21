@@ -107,24 +107,27 @@ function results(){
 
 function progress(){
   $userSessions = getUserAndSession();
-  $sessionNoActive = getSessionNoActive();
-  $sessionActive = getSessionActive();
 
-  if (isset($sessionNoActive)) {
-  $status = "non-actif";
 
+foreach ($userSessions as $key => $session) {
+
+
+  if( $session["start_qcm_date"] && !$session["end_qcm_date"]){
+    $userSessions[$key]["status"] = "En Cours";
   }
-
-  else
-  {
-    isset($sessionActive);
-  $status = "En Cours";
+  elseif($session["start_qcm_date"] && $session["end_qcm_date"]){
+      $userSessions[$key]["status"] = "Terminé";
+  }
+  else {
+      $userSessions[$key]["status"] = "Non-actif";
+  }
+  echo "<p>" . var_dump($session) . "</p>";
 }
 
 
-  var_dump($sessionActive);
+
   require 'view/sessionListView.php';
-}
+  }
 
 
 

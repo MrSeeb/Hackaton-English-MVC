@@ -113,7 +113,7 @@ function getUserAndSession(){
 function getSessionNoActive(){
   $db = connectToDataBAse();
   $sessionNoActive = $db->query("SELECT created_date FROM session");
-  $result = $sessionNoActive->fetch(PDO::FETCH_ASSOC);
+  $result = $sessionNoActive->fetchall(PDO::FETCH_ASSOC);
   $sessionNoActive->closeCursor();
   return $result;
 }
@@ -122,7 +122,7 @@ function getSessionNoActive(){
 function getSessionActive(){
   $db = connectToDataBAse();
   $sessionActive = $db->query("SELECT start_qcm_date FROM session");
-  $result = $sessionActive->fetch(PDO::FETCH_ASSOC);
+  $result = $sessionActive->fetchall(PDO::FETCH_ASSOC);
   $sessionActive->closeCursor();
   return $result;
 }
@@ -130,10 +130,11 @@ function getSessionActive(){
 function getSessionFinish(){
   $db = connectToDataBAse();
   $sessionFinish = $db->query("SELECT end_qcm_date FROM session");
-  $result = $sessionFinish->fetch(PDO::FETCH_ASSOC);
+  $result = $sessionFinish->fetchall(PDO::FETCH_ASSOC);
   $sessionFinish->closeCursor();
   return $result;
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 

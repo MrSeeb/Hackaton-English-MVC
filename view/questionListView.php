@@ -1,68 +1,35 @@
-<?php
-
-include "view/template/header.php";
-$db = connectToDataBAse();
-
-$query_question = $db->query('SELECT * FROM question');
-
-$question = $query_question->fetchall(PDO::FETCH_ASSOC);
-
-$query_reponse = $db->query('SELECT * FROM reponse');
-
-$reponse = $query_reponse->fetchall(PDO::FETCH_ASSOC);
-
- ?>
+<?php include "view/template/header.php"; ?>
 
 <section>
-  <h2>Panel d'adminisatration</h2>
+  <h2>Gestion des questions</h2>
   <div class="d-flex justify-content-end">
     <!-- Add entity in table -->
     <a <?php setHref('teacher/addQuestion'); ?> class="btn btn-primary btn-lg active" role="button">Ajouter +</a>
   </div>
   <div class="mx-auto mt-3">
-    <!-- Presentation of questions + reponses -->
+    <!-- Presentation of questions + responses -->
+    <?php foreach ($questions as $key => $question){?>
     <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Question</th>
-          <th scope="col">Réponse</th>
-          <th scope="col">Options</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <?php foreach ($question as $key => $value)
-            {
-              echo $value['question']. "<br>" ;
-            }
-            ?>
-          </td>
-
-          <td>
-            <?php foreach ($reponse as $key => $value)
-            {
-              echo $value['reponse']. "<br>";
-            }
-            ?>
-          </td>
-          <td>
-            <?php foreach ($reponse as $key => $value) {
-              if(!empty($reponse)) {
-                echo "<button type='submit' class='btn btn-warning'>Modifier</button>
-                <button type='button' class='btn btn-danger'>Supprimer</button>". "<br>";
-              }
-              else {
-                echo "nop";
-              }
-            }
-
-            ?>
-          </td>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Question 1 : <?php echo $question["question"]; ?></th>
+            <th scope="col"><a <?php setHref("teacher/updateQuestion", ["id" => $question['id_question']]) ?>> modifier</a> </th>
           </tr>
+        </thead>
+        <tbody>
+          <?php
+          $responses = getResponsesQuestion($question["id_question"]);
+          foreach ($responses as $key => $response){?>
+          <tr>
+            <th scope="col">@</th>
+            <td scope="col"><?php echo $response["response"];?></td>
+            <td scope="col"><?php echo  ($response["is_correct"])? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>"; ?> </td>
+          </tr>
+            <?php } ?>
+        </tbody>
     </table>
+  <?php } ?>
   </div>
 </section>
- <?php
-include "view/template/footer.php";
- ?>
+<?php include "view/template/footer.php"; ?>
