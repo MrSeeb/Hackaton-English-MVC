@@ -74,7 +74,6 @@ function getRoutes() {
    "secretary/progress" => [
      "user",
      "progress"
-
    ],
 // ====================PART SESSION ==================
 

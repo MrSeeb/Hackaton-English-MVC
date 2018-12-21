@@ -80,17 +80,15 @@ function logoutUser()
 //////////////////////////////////////////////////////////
 function addStudent(){
   if(!empty($_POST)){
+    //Add User
         addUser($_POST);
         $user_id = getLastUserID();
         $code = uniqCode(10);
-
-        // and we add session to the db
+        //Add Session
         if(addSession($_POST, $user_id, $code)){
-        // if addsession is true : we header locate to sessionList.php with success message
             redirectTo('secretary/results');
         }
         else{
-          // if addsession is false : we header locate to createSessionStudent.php
             redirectTo('secretary/addStudent');
         }
       }
@@ -98,6 +96,8 @@ function addStudent(){
 }
 
 function results(){
+  //Stock the new join table
+  $sessions = getJoinUserSession();
   require 'view/admittedListView.php';
 }
 
@@ -106,6 +106,7 @@ function results(){
 /////////////////////////////////////////////////////////////
 
 function progress(){
+  //Stock user and Session user
   $userSessions = getUserAndSession();
 
 
@@ -122,6 +123,14 @@ foreach ($userSessions as $key => $session) {
       $userSessions[$key]["status"] = "Non-actif";
   }
   echo "<p>" . var_dump($session) . "</p>";
+}
+
+function singleSecretary(){
+   $user_id = $_GET['id'];
+  // stock information's user by id session
+   $user = getUserbySessionID($user_id);
+
+  require 'view/singleSecretaryView.php';
 }
 
 
