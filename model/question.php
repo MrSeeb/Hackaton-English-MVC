@@ -25,7 +25,7 @@ function getQuestions()
 function getQuestion($id)
 {
     $db = connectToDataBAse();
-    $query = $db->prepare("SELECT * FROM question WHERE id=?");
+    $query = $db->prepare("SELECT * FROM question WHERE id_question=?");
     $query->execute([$id]);
     $question = $query->fetch(PDO::FETCH_ASSOC);
     return $question;
@@ -53,6 +53,52 @@ function getResponsesQuestion($id)
   $query->closeCursor();
 }
 
+
+
+function addQuestion($post)
+{
+    $db = connectToDataBAse();
+    $query = $db->prepare("INSERT INTO question (question) VALUES(:question)");
+    $result = $query->execute([
+        "question" => $post["question"]
+    ]);
+    return $result;
+    $query->closeCursor();
+}
+
+function addTrueResponse($post,$question_id)
+{
+     $db = connectToDataBAse();
+     $query = $db->prepare("INSERT INTO response (response, is_correct, question_id) VALUES(:response, :is_correct, :question_id)");
+     $result = $query->execute([
+        "response" => $post["goodResponse"],
+        "is_correct" => 1,
+        "question_id" => intval($question_id)
+      ]);
+      return $result;
+      $query->closeCursor();
+}
+
+function addBadResponse($post,$question_id)
+{
+     $db = connectToDataBAse();
+     $query = $db->prepare("INSERT INTO response (response, is_correct, question_id) VALUES(:response, :is_correct, :question_id)");
+     $result = $query->execute([
+        "response" => $post,
+        "is_correct" => 0,
+        "question_id" => intval($question_id)
+      ]);
+      return $result;
+      $query->closeCursor();
+}
+
+
+
+
+
+
+
+
 //Add response to the datatbase
 function addresponse($question_id)
 {
@@ -62,19 +108,35 @@ function addresponse($question_id)
         "response" => $_POST["response"],
         "question_id" => $question_id
       ]);
+      return $result;
+      $query->closeCursor();
 }
 
 //Fonction pour modifier les valeurs d'une question en base de données
-function updateQuestion($question)
+function updateQuestion($post)
 {
     $db = connectToDataBAse();
-    $query = $db->prepare("UPDATE question SET question = :question WHERE id_question = :id");
+    $query = $db->prepare("UPDATE question SET question = :question WHERE id_question = :id_question");
     $result = $query->execute([
-        "id" => $question["id"],
-        "question" => $question["question"]
+        "id_question" => $post["id_question"],
+        "question" => $post["question"]
     ]);
     return $result;
     $query->closeCursor();
+}
+
+
+// update response
+function updateResponse($post,$id)
+{
+  $db = connectToDataBAse();
+  $query = $db->prepare("UPDATE response SET response = :response WHERE id_response = :id_response");
+  $result = $query->execute([
+      "id_response" => $id,
+      "response" => $post
+  ]);
+  return $result;
+  $query->closeCursor();
 }
 
 //Fonction pour supprimer une question en base de données

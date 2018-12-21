@@ -1,12 +1,7 @@
-<?php
-require "model/question.php";
-include "view/template/header.php";
-
-$questions = getQuestions();
- ?>
+<?php include "view/template/header.php"; ?>
 
 <section>
-  <h2>Panel d'adminisatration</h2>
+  <h2>Gestion des questions</h2>
   <div class="d-flex justify-content-end">
     <!-- Add entity in table -->
     <a <?php setHref('teacher/addQuestion'); ?> class="btn btn-primary btn-lg active" role="button">Ajouter +</a>
@@ -29,7 +24,7 @@ $questions = getQuestions();
           <tr>
             <th scope="col">@</th>
             <td scope="col"><?php echo $response["response"];?></td>
-            <td scope="col"><?php echo  ($response["is_correct"])? "Vrai" : "Faux"; ?> </td>
+            <td scope="col"><?php echo  ($response["is_correct"])? "<i class='fas fa-check'></i>" : "<i class='fas fa-times'></i>"; ?> </td>
           </tr>
             <?php } ?>
         </tbody>
@@ -37,6 +32,4 @@ $questions = getQuestions();
   <?php } ?>
   </div>
 </section>
- <?php
-include "view/template/footer.php";
- ?>
+<?php include "view/template/footer.php"; ?>

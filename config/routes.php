@@ -45,11 +45,13 @@ function getRoutes() {
     ],
     "teacher/addQuestion" => [
       "question",
-      "addQuestion"
+      "addOneQuestion",
     ],
     "teacher/updateQuestion" => [
       "question",
-      "updateOneQuestion"
+      "updateOneQuestion",
+      ["id" => ["integer"],
+    ],
     ],
     //=============PART SECRETARY=============//
     "secretary" => [
