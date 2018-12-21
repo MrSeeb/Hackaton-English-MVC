@@ -23,8 +23,6 @@ function getRoutes() {
       "user",
       "loginAdmin"
     ],
-
-
     "login" => [
       "admin",
       "loginUser"
@@ -53,6 +51,7 @@ function getRoutes() {
       ["id" => ["integer"],
     ],
     ],
+
     //=============PART SECRETARY=============//
     "secretary" => [
       "user",
@@ -76,9 +75,13 @@ function getRoutes() {
       "progress"
 
     ],
-// ====================PART SESSION ==================
-
-    "testStart"=> [
+    "secretary/single" => [
+      "user",
+      "singleSecretary",
+      ["id" => ["integer"]]
+    ],
+    //=============PART TEST STUDENT=============//
+    "teststart"=> [
     "session",
     "testStart" ,
     // ["id" => ["integer"]],
@@ -98,7 +101,7 @@ function getRoutes() {
       // ["id" => ["integer"]]
     ],
 
-    "deleteUser" => [
+    "deleteuser" => [
       "user",
       "eraser",
         ["id" => ["integer"]],
